@@ -1,18 +1,31 @@
-import { ADD_TODO, TOGGLE_TODO, SET_FILTER } from "./actionTypes";
+import { PRODUCE_RESOURCES, CONSUME_RESOURCES, CREATE_BUILDING, PRODUCE_WORKERS, ASSIGN_WORKERS, RETIRE_WORKERS } from "./actionTypes";
 
-let nextTodoId = 0;
+export const produceResources = resources => ({
+  type: PRODUCE_RESOURCES,
+  payload: resources
+})
 
-export const addTodo = content => ({
-  type: ADD_TODO,
-  payload: {
-    id: ++nextTodoId,
-    content
-  }
-});
+export const consumeResources = resources => ({
+  type: CONSUME_RESOURCES,
+  payload: resources
+})
 
-export const toggleTodo = id => ({
-  type: TOGGLE_TODO,
-  payload: { id }
-});
+export const createBuilding = building => ({
+  type: PRODUCE_BUILDING,
+  payload: building
+})
 
-export const setFilter = filter => ({ type: SET_FILTER, payload: { filter } });
+export const produceWorkers = workers => ({
+  type: PRODUCE_WORKERS,
+  payload: workers
+})
+
+export const assignWorkers = workers => ({
+  type: ASSIGN_WORKERS,
+  payload: workers
+})
+
+export const retireWorkers = workers => ({
+  type: RETIRE_WORKERS,
+  payload: workers
+})
