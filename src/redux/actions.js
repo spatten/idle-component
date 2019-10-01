@@ -11,7 +11,7 @@ export const consumeResources = resources => ({
 })
 
 export const createBuilding = building => ({
-  type: PRODUCE_BUILDING,
+  type: CREATE_BUILDING,
   payload: building
 })
 
