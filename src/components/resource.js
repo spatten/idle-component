@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { produceResources } from '../redux/actions'
+import { Button } from 'evergreen-ui'
 
 function Resource({ count, name, handleClick }) {
   return (
       <div className='resource'>
       <span className='resource--counter'>{count}</span>
-      <button className='resource--button' onClick={handleClick}>Mine {name}</button>
+      <Button className='resource--button' onClick={handleClick}>Mine {name}</Button>
       </div>
 
   )
