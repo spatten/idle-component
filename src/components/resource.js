@@ -14,6 +14,7 @@ function Resource({ count, capacity, name, action, icon, handleClick }) {
           justifyContent="center"
           alignItems="center"
           flexDirection="column"
+          userSelect="none"
           border="muted">
       <Text>{count} / {capacity}</Text>
       <Button onClick={handleClick}
