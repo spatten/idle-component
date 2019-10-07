@@ -1,14 +1,27 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { produceResources } from '../redux/actions'
-import { Button } from 'evergreen-ui'
+import { majorScale, Button, Card, Text } from 'evergreen-ui'
 
 function Resource({ count, name, handleClick }) {
   return (
-      <div className='resource'>
-      <span className='resource--counter'>{count}</span>
-      <Button className='resource--button' onClick={handleClick}>Mine {name}</Button>
-      </div>
+    <Card width={majorScale(16)}
+          height={majorScale(10)}
+          padding={majorScale(1)}
+          elevation={1}
+          margin={majorScale(1)}
+          padding={majorScale(1)}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          flexDirection="column"
+          border="muted">
+      <Text>{count}</Text>
+      <Button onClick={handleClick}
+              marginTop={majorScale(1)}>
+        Mine {name}
+      </Button>
+    </Card>
 
   )
 }

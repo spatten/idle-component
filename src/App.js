@@ -2,13 +2,14 @@ import React from 'react';
 
 import './App.css';
 import Resource from './components/resource'
+import { majorScale, Pane } from 'evergreen-ui'
 
 function App() {
   return (
-    <div className="App">
-      <Resource name='wood' />
-      <Resource name='iron' />
-    </div>
+    <Pane display="flex" flexDirection="row">
+      <Resource name="wood" />
+      <Resource name="iron" />
+    </Pane>
   );
 }
 
