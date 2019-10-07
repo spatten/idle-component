@@ -3,14 +3,13 @@ import { connect } from 'react-redux'
 import { produceResources } from '../redux/actions'
 import { majorScale, Button, Card, Text } from 'evergreen-ui'
 
-function Resource({ count, name, handleClick }) {
+function Resource({ count, name, action, icon, handleClick }) {
   return (
-    <Card width={majorScale(16)}
+    <Card width={majorScale(20)}
           height={majorScale(10)}
           padding={majorScale(1)}
           elevation={1}
           margin={majorScale(1)}
-          padding={majorScale(1)}
           display="flex"
           justifyContent="center"
           alignItems="center"
@@ -18,8 +17,9 @@ function Resource({ count, name, handleClick }) {
           border="muted">
       <Text>{count}</Text>
       <Button onClick={handleClick}
-              marginTop={majorScale(1)}>
-        Mine {name}
+              marginTop={majorScale(1)}
+              iconBefore={icon}>
+        {action} {name}
       </Button>
     </Card>
 
@@ -28,7 +28,7 @@ function Resource({ count, name, handleClick }) {
 
 const mapStateToProps = (state, ownProps) => (
   {
-    count: state.resources[ownProps.name]
+    ...state.resources[ownProps.name]
   }
  )
 

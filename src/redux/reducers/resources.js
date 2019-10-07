@@ -1,8 +1,21 @@
 import { PRODUCE_RESOURCES, CONSUME_RESOURCES } from "../actionTypes";
 
 const initialState = {
-  wood: 0,
-  iron: 0,
+  wood:
+  { name: 'Wood',
+    count: 0,
+    icon: 'tree',
+    action: 'Chop'},
+  iron: {
+    name: 'Iron',
+    count: 0,
+    icon: 'mountain',
+    action: 'Mine'},
+  oil: {
+    name: 'Oil',
+    count: 0,
+    icon: 'oil-field',
+    action: 'Pump'},
 }
 
 export default function(state = initialState, action) {
@@ -11,7 +24,7 @@ export default function(state = initialState, action) {
       const created = action.payload;
       const updatedResources = {...state}
       Object.keys(created).forEach((resource) => {
-        updatedResources[resource] += created[resource]
+        updatedResources[resource].count += created[resource]
       })
       return {
         ...updatedResources
