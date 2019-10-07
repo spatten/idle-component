@@ -10,7 +10,7 @@ function App() {
     <>
       <Helmet>
         <title>Idle Component!</title>
-        // This style and the following meta tag prevent zooming in on mobile, which is really annoying when you're just clicking on buttons
+        {/* This style and the following meta tag prevent zooming in on mobile, which is really annoying when you're just clicking on buttons */}
         <style type="text/css">{`
           body {
             touch-action: manipulation;
