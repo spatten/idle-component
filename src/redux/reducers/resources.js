@@ -4,16 +4,19 @@ const initialState = {
   wood:
   { name: 'Wood',
     count: 0,
+    capacity: 500,
     icon: 'tree',
     action: 'Chop'},
   iron: {
     name: 'Iron',
     count: 0,
+    capacity: 500,
     icon: 'mountain',
     action: 'Mine'},
   oil: {
     name: 'Oil',
     count: 0,
+    capacity: 100,
     icon: 'oil-field',
     action: 'Pump'},
 }
@@ -25,6 +28,9 @@ export default function(state = initialState, action) {
       const updatedResources = {...state}
       Object.keys(created).forEach((resource) => {
         updatedResources[resource].count += created[resource]
+        if (updatedResources[resource].count > updatedResources[resource].capacity) {
+          updatedResources[resource].count = updatedResources[resource].capacity
+        }
       })
       return {
         ...updatedResources

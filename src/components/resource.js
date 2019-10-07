@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { produceResources } from '../redux/actions'
 import { majorScale, Button, Card, Text } from 'evergreen-ui'
 
-function Resource({ count, name, action, icon, handleClick }) {
+function Resource({ count, capacity, name, action, icon, handleClick }) {
   return (
     <Card width={majorScale(20)}
           height={majorScale(10)}
@@ -15,7 +15,7 @@ function Resource({ count, name, action, icon, handleClick }) {
           alignItems="center"
           flexDirection="column"
           border="muted">
-      <Text>{count}</Text>
+      <Text>{count} / {capacity}</Text>
       <Button onClick={handleClick}
               marginTop={majorScale(1)}
               iconBefore={icon}>
