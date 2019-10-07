@@ -26,6 +26,7 @@ export default function(state = initialState, action) {
     case PRODUCE_RESOURCES: {
       const created = action.payload;
       const updatedResources = {...state}
+      // TODO: Refactor this
       Object.keys(created).forEach((resource) => {
         updatedResources[resource].count += created[resource]
         if (updatedResources[resource].count > updatedResources[resource].capacity) {
