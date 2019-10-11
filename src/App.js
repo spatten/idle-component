@@ -2,6 +2,7 @@ import React from 'react';
 
 import './App.css';
 import Resource from './components/resource'
+import Building from './components/building'
 import { majorScale, Heading, Pane } from 'evergreen-ui'
 import { Helmet } from 'react-helmet'
 
@@ -29,9 +30,7 @@ function App() {
       <Pane display="flex" flexDirection="column" padding={majorScale(2)}>
         <Heading>Buildings</Heading>
         <Pane display="flex" flexDirection="row">
-          <Resource name="wood" />
-          <Resource name="iron" />
-          <Resource name="oil" />
+          <Building name="hut" />
         </Pane>
       </Pane>
     </>

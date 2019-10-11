@@ -24,6 +24,7 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case PRODUCE_RESOURCES: {
+      console.log(`creating!`)
       const created = action.payload;
       const updatedResources = {...state}
       // TODO: Refactor this
@@ -38,14 +39,14 @@ export default function(state = initialState, action) {
       };
     }
     case CONSUME_RESOURCES: {
+      console.log(`consuming!`)
       const consumed = action.payload
-      const updatedResources = {...state.resources}
+      const updatedResources = {...state}
       Object.keys(consumed).forEach((resource) => {
         updatedResources[resource] -= consumed[resource]
       })
       return {
-        ...state,
-        resources: updatedResources
+        ...updatedResources
       };
     }
     default:
