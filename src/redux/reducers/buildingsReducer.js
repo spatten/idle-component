@@ -1,4 +1,4 @@
-import { CREATE_BUILDING } from "../actionTypes";
+import { CREATE_BUILDING } from '../actionTypes'
 
 const haveResourcesToPay = (cost, resources) => {
   return Object.keys(cost).every((resource) => {
@@ -13,15 +13,15 @@ const spendResources = (cost, resources) => {
   return resources
 }
 
-export default function(state, action) {
+export default function (state, action) {
   switch (action.type) {
   case CREATE_BUILDING: {
-    const { buildings, resources } = {...state}
+    const { buildings, resources } = { ...state }
     const building = buildings[action.payload]
 
     const cost = building.cost
     if (!haveResourcesToPay(cost, resources)) {
-      return state;
+      return state
     }
 
     building.count = building.count + 1
@@ -34,6 +34,6 @@ export default function(state, action) {
     return result
   }
   default:
-    return state;
+    return state
   }
 }

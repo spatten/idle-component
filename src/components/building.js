@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createBuilding } from '../redux/actions'
 import { majorScale, Button, Card, Text } from 'evergreen-ui'
@@ -27,16 +28,22 @@ function Building ({ count, name, icon, handleClick }) {
   )
 }
 
+Building.propTypes = {
+  count: PropTypes.number,
+  name: PropTypes.string,
+  icon: PropTypes.string,
+  handleClick: PropTypes.func
+}
+
 const mapStateToProps = (state, ownProps) => (
   {
     ...state.buildings[ownProps.name]
   }
 )
 
-
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    handleClick: () => dispatch(createBuilding(ownProps["name"]))
+    handleClick: () => dispatch(createBuilding(ownProps.name))
   }
 }
 

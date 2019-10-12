@@ -1,4 +1,4 @@
-import { PRODUCE_RESOURCES, CREATE_BUILDING, PRODUCE_WORKERS, ASSIGN_WORKERS, RETIRE_WORKERS } from "./actionTypes";
+import { PRODUCE_RESOURCES, CREATE_BUILDING, PRODUCE_WORKERS, ASSIGN_WORKERS, RETIRE_WORKERS } from './actionTypes'
 
 export const produceResources = resources => ({
   type: PRODUCE_RESOURCES,
