@@ -9,7 +9,7 @@ const initialState = {
       name: 'Hut',
       count: 0,
       cost: {
-        wood: 100
+        wood: 10
       }
     }
   },
