@@ -4,7 +4,14 @@ import { connect } from 'react-redux'
 import { createBuilding } from '../redux/actions'
 import { majorScale, Button, Card, Text } from 'evergreen-ui'
 
-function Building ({ count, name, icon, handleClick }) {
+function haveResourcesToPay (cost, resources) {
+  const res = Object.keys(cost).every((resource) => {
+    return (cost[resource] <= resources[resource].count)
+  })
+  return res
+}
+
+function Building ({ count, name, icon, handleClick, cost, resources }) {
   return (
     <Card width={majorScale(20)}
           height={majorScale(10)}
@@ -20,7 +27,8 @@ function Building ({ count, name, icon, handleClick }) {
       <Text>{count}</Text>
       <Button onClick={handleClick}
               marginTop={majorScale(1)}
-              iconBefore={icon}>
+              iconBefore={icon}
+              disabled={!haveResourcesToPay(cost, resources)}>
         Build {name}
       </Button>
     </Card>
@@ -33,13 +41,18 @@ Building.propTypes = {
   name: PropTypes.string,
   icon: PropTypes.string,
   handleClick: PropTypes.func,
+  cost: PropTypes.object,
+  resources: PropTypes.object,
 }
 
-const mapStateToProps = (state, ownProps) => (
-  {
-    ...state.buildings[ownProps.name]
+const mapStateToProps = (state, ownProps) => {
+  const { resources, buildings } = state
+  const res = {
+    ...buildings[ownProps.name],
   }
-)
+  res.resources = { ...resources }
+  return res
+}
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
