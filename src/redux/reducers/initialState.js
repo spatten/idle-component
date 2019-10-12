@@ -28,24 +28,15 @@ export default {
         iron: 10
       }
     },
-    mine: {
-      slug: 'mine',
-      name: 'Mine',
-      icon: 'mountain',
-      count: 0,
-      cost: {
-        wood: 15,
-        iron: 10
-      }
-    }
   },
   resources: {
-    wood:
-    { name: 'Wood',
+    wood: {
+      name: 'Wood',
       count: 0,
       capacity: 500,
       icon: 'tree',
-      action: 'Chop'},
+      action: 'Chop'
+    },
     iron: {
       name: 'Iron',
       count: 0,
