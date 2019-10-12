@@ -27,11 +27,11 @@ function Resource({ count, capacity, name, action, icon, handleClick }) {
   )
 }
 
-const mapStateToProps = (state, ownProps) => (
-  {
+const mapStateToProps = (state, ownProps) => {
+  return {
     ...state.resources[ownProps.name]
   }
- )
+ }
 
 
 const mapDispatchToProps = (dispatch, ownProps) => {

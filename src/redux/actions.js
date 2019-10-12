@@ -1,12 +1,7 @@
-import { PRODUCE_RESOURCES, CONSUME_RESOURCES, CREATE_BUILDING, PRODUCE_WORKERS, ASSIGN_WORKERS, RETIRE_WORKERS } from "./actionTypes";
+import { PRODUCE_RESOURCES, CREATE_BUILDING, PRODUCE_WORKERS, ASSIGN_WORKERS, RETIRE_WORKERS } from "./actionTypes";
 
 export const produceResources = resources => ({
   type: PRODUCE_RESOURCES,
-  payload: resources
-})
-
-export const consumeResources = resources => ({
-  type: CONSUME_RESOURCES,
   payload: resources
 })
 
