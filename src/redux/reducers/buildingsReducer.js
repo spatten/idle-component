@@ -6,6 +6,14 @@ const haveResourcesToPay = (cost, resources) => {
   })
 }
 
+const calculateCost = ({ baseCost, count, costExponential }) => {
+  const cost = {}
+  Object.keys(baseCost).forEach((resource) => {
+    cost[resource] = Math.ceil(baseCost[resource] * (count + 1) ** costExponential)
+  })
+  return cost
+}
+
 const spendResources = (cost, resources) => {
   Object.keys(cost).forEach((resource) => {
     resources[resource].count -= cost[resource]
@@ -25,6 +33,7 @@ export default function (state, action) {
     }
 
     building.count = building.count + 1
+    building.cost = calculateCost(building)
     spendResources(cost, resources)
     const result = {
       ...state,

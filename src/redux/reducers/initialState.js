@@ -5,6 +5,10 @@ export default {
       name: 'Hut',
       icon: 'home',
       count: 0,
+      baseCost: {
+        wood: 10
+      },
+      costExponential: 1.2,
       cost: {
         wood: 10
       }
@@ -14,6 +18,11 @@ export default {
       name: 'Farm',
       icon: 'media',
       count: 0,
+      baseCost: {
+        wood: 15,
+        iron: 10
+      },
+      costExponential: 1.2,
       cost: {
         wood: 15,
         iron: 10
