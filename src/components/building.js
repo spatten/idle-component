@@ -32,7 +32,7 @@ Building.propTypes = {
   count: PropTypes.number,
   name: PropTypes.string,
   icon: PropTypes.string,
-  handleClick: PropTypes.func
+  handleClick: PropTypes.func,
 }
 
 const mapStateToProps = (state, ownProps) => (
@@ -49,5 +49,5 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Building)

@@ -23,6 +23,7 @@
     ],
     "rules": {
       "react/jsx-indent-props": ["error", "first"],
-      "indent": ["error", 2, { "ignoredNodes": ["JSXAttribute"]}]
+      "indent": ["error", 2, { "ignoredNodes": ["JSXAttribute"]}],
+      "comma-dangle": ["error", "only-multiline"]
     }
 }
