@@ -3,14 +3,26 @@ export default {
     hut: {
       slug: 'hut',
       name: 'Hut',
+      icon: 'home',
       count: 0,
       cost: {
         wood: 10
       }
     },
+    farm: {
+      slug: 'farm',
+      name: 'Farm',
+      icon: 'media',
+      count: 0,
+      cost: {
+        wood: 15,
+        iron: 10
+      }
+    },
     mine: {
       slug: 'mine',
       name: 'Mine',
+      icon: 'mountain',
       count: 0,
       cost: {
         wood: 15,
