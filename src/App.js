@@ -31,6 +31,7 @@ function App() {
         <Heading>Buildings</Heading>
         <Pane display="flex" flexDirection="row">
           <Building name="hut" />
+          <Building name="mine" />
         </Pane>
       </Pane>
     </>

@@ -7,6 +7,15 @@ export default {
       cost: {
         wood: 10
       }
+    },
+    mine: {
+      slug: 'mine',
+      name: 'Mine',
+      count: 0,
+      cost: {
+        wood: 15,
+        iron: 10
+      }
     }
   },
   resources: {
