@@ -47,11 +47,10 @@ Building.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
   const { resources, buildings } = state
-  const res = {
+  return {
     ...buildings[ownProps.name],
+    resources: { ...resources }
   }
-  res.resources = { ...resources }
-  return res
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
