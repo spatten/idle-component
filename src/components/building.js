@@ -12,7 +12,11 @@ function haveResourcesToPay (cost, resources) {
 }
 
 function tooltipContent (name, cost, resources) {
-  const costItems = Object.keys(cost).map((resource) => <li key={resource}>{cost[resource]} {resources[resource].name}</li>)
+  const costItems = Object.keys(cost).map((resource) => {
+    const color = cost[resource] <= resources[resource].count ? 'success' : 'danger'
+    return <li key={resource}><Text color={color}>{cost[resource]} {resources[resource].name}</Text></li>
+  })
+
   return (
     <Paragraph margin={majorScale(1)}>
       Your next {name} will cost
