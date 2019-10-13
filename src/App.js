@@ -17,6 +17,7 @@ function App () {
           body {
             touch-action: manipulation;
           }
+          button:focus { box-shadow: inset 0 0 0 1px rgba(67, 90, 111, 0.14), inset 0 -1px 1px 0 rgba(67, 90, 111, 0.06) !important }
         `}</style>
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
       </Helmet>
