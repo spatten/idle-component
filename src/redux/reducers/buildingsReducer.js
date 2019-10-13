@@ -39,6 +39,7 @@ export default function (state, action) {
     case 'hut': {
       workers.unassigned.visible = true
       workers.unassigned.count += 4
+      workers.woodcutters.visible = true
       break
     }
     case 'farm': {

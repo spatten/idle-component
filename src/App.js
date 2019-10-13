@@ -41,6 +41,7 @@ function App () {
         <Heading>Workers</Heading>
         <Pane display="flex" flexDirection="row">
           <Worker name="unassigned" />
+          <Worker name="woodcutters" />
           <Worker name="farmers" />
         </Pane>
       </Pane>

@@ -8,7 +8,7 @@ export default function (state, action) {
     if (updatedWorkers.unassigned.count <= 0) {
       return
     }
-    if (updatedWorkers[worker].count >= updatedWorkers[worker].max) {
+    if (updatedWorkers[worker].max && updatedWorkers[worker].count >= updatedWorkers[worker].max) {
       return
     }
 

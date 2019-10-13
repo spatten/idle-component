@@ -23,6 +23,7 @@ function Worker ({ count, max, name, icon, visible, onRetireWorker, onAssignWork
   if (visible === false) {
     return null
   }
+  const showArrows = name !== 'unassigned'
 
   return (
     <Card width={majorScale(20)}
@@ -41,7 +42,7 @@ function Worker ({ count, max, name, icon, visible, onRetireWorker, onAssignWork
       <Pane display="flex"
             flexDirection="row">
         <Paragraph marginRight={majorScale(1)}>{ countString(count, max) }</Paragraph>
-        { max && buildingClickers(onAssignWorker, onRetireWorker)}
+        { showArrows && buildingClickers(onAssignWorker, onRetireWorker)}
       </Pane>
     </Card>
   )

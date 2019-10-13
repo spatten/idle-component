@@ -41,14 +41,14 @@ export default {
     },
     wood: {
       name: 'Wood',
-      count: 100,
+      count: 300,
       capacity: 500,
       icon: 'tree',
       action: 'Chop'
     },
     iron: {
       name: 'Iron',
-      count: 100,
+      count: 300,
       capacity: 500,
       icon: 'mountain',
       action: 'Mine'
@@ -64,12 +64,17 @@ export default {
   workers: {
     unassigned: {
       count: 0,
+      max: null,
       visible: false,
-      max: null
     },
     farmers: {
       count: 0,
       max: 0,
+      visible: false,
+    },
+    woodcutters: {
+      count: 0,
+      max: null,
       visible: false,
     },
     miners: {

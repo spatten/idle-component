@@ -19,6 +19,12 @@ export default function (state, action) {
       switch (workerType) {
       case 'farmers': {
         foodCreated += 3 * worker.count * ticksElapsed
+        break
+      }
+      case 'woodcutters': {
+        resources.wood.count += 3 * worker.count * ticksElapsed
+        if (resources.wood.count > resources.wood.capacity) resources.wood.count = resources.wood.capacity
+        break
       }
       }
     })
