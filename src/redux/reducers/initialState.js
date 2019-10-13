@@ -32,6 +32,13 @@ export default {
     },
   },
   resources: {
+    food: {
+      name: 'Food',
+      count: 100,
+      capacity: 500,
+      icon: 'heart',
+      action: 'Gather'
+    },
     wood: {
       name: 'Wood',
       count: 100,

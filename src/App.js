@@ -23,6 +23,7 @@ function App() {
       <Pane display="flex" flexDirection="column" padding={majorScale(2)}>
         <Heading>Resources</Heading>
         <Pane display="flex" flexDirection="row">
+          <Resource name="food" />
           <Resource name="wood" />
           <Resource name="iron" />
           <Resource name="oil" />
