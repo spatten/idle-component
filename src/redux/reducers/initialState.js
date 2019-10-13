@@ -58,6 +58,7 @@ export default {
     unassigned: {
       count: 0,
       visible: false,
+      max: null
     },
     farmers: {
       count: 0,

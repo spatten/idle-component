@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import Resource from './components/resource'
 import Building from './components/building'
+import Worker from './components/worker'
 import { majorScale, Heading, Pane } from 'evergreen-ui'
 import { Helmet } from 'react-helmet'
 
@@ -32,6 +33,13 @@ function App() {
         <Pane display="flex" flexDirection="row">
           <Building name="hut" />
           <Building name="farm" />
+        </Pane>
+      </Pane>
+      <Pane display="flex" flexDirection="column" padding={majorScale(2)}>
+        <Heading>Workers</Heading>
+        <Pane display="flex" flexDirection="row">
+          <Worker name="unassigned" />
+          <Worker name="farmers" />
         </Pane>
       </Pane>
     </>
