@@ -44,12 +44,30 @@ export default {
       count: 0,
       capacity: 500,
       icon: 'mountain',
-      action: 'Mine'},
+      action: 'Mine'
+    },
     oil: {
       name: 'Oil',
       count: 0,
       capacity: 100,
       icon: 'oil-field',
-      action: 'Pump'},
+      action: 'Pump'
+    },
+  },
+  workers: {
+    unassigned: {
+      count: 0,
+      visible: false,
+    },
+    farmers: {
+      count: 0,
+      max: 0,
+      visible: false,
+    },
+    miners: {
+      count: 0,
+      max: 0,
+      visible: false,
+    },
   }
 }

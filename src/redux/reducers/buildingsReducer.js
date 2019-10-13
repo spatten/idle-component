@@ -24,7 +24,7 @@ const spendResources = (cost, resources) => {
 export default function (state, action) {
   switch (action.type) {
   case CREATE_BUILDING: {
-    const { buildings, resources } = { ...state }
+    const { buildings, resources, workers } = { ...state }
     const building = buildings[action.payload]
 
     const cost = building.cost
@@ -35,9 +35,23 @@ export default function (state, action) {
     building.count = building.count + 1
     building.cost = calculateCost(building)
     spendResources(cost, resources)
+    switch (action.payload) {
+    case 'hut': {
+      workers.unassigned.visible = true
+      workers.unassigned.count += 4
+      break
+    }
+    case 'farm': {
+      workers.farmers.visible = true
+      workers.farmers.max += 4
+      break
+    }
+    }
+
     const result = {
       ...state,
-      resources: resources
+      resources: resources,
+      workers: workers,
     }
     result.buildings[action.payload] = building
     return result
