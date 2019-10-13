@@ -1,6 +1,7 @@
 import reduceReducers from 'reduce-reducers'
+import initialState from './initialState'
 import resourcesReducer from './resourcesReducer'
 import buildingsReducer from './buildingsReducer'
-import initialState from './initialState'
+import workersReducer from './workersReducer'
 
-export default reduceReducers(initialState, resourcesReducer, buildingsReducer)
+export default reduceReducers(initialState, resourcesReducer, buildingsReducer, workersReducer)

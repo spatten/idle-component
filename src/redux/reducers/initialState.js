@@ -34,14 +34,14 @@ export default {
   resources: {
     wood: {
       name: 'Wood',
-      count: 0,
+      count: 100,
       capacity: 500,
       icon: 'tree',
       action: 'Chop'
     },
     iron: {
       name: 'Iron',
-      count: 0,
+      count: 100,
       capacity: 500,
       icon: 'mountain',
       action: 'Mine'

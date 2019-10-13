@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { majorScale, Card, Icon, Pane, Paragraph, Text, Tooltip } from 'evergreen-ui'
+import { assignWorker, retireWorker } from '../redux/actions'
+import { majorScale, Card, IconButton, Paragraph, Pane, Text, Tooltip } from 'evergreen-ui'
 
 const countString = (count, max) => {
   if (max === null) {
@@ -11,17 +12,38 @@ const countString = (count, max) => {
   }
 }
 
-function Worker ({ count, max, name, icon, visible }) {
+const buildingClickers = (onAssignWorker, onRetireWorker) => (
+  <>
+    <IconButton icon="arrow-up" onClick={onAssignWorker}/>
+    <IconButton icon="arrow-down" onClick={onRetireWorker} />
+  </>
+)
 
+function Worker ({ count, max, name, icon, visible, onRetireWorker, onAssignWorker }) {
   if (visible === false) {
     return null
   }
 
   return (
-    <Pane margin={majorScale(1)}>
+    <Card width={majorScale(20)}
+          height={majorScale(10)}
+          padding={majorScale(1)}
+          elevation={1}
+          margin={majorScale(1)}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          flexDirection="column"
+          userSelect="none"
+          position="relative"
+          border="muted">
       <Paragraph>{ name }</Paragraph>
-      <Paragraph>{ countString(count, max) }</Paragraph>
-    </Pane>
+      <Pane display="flex"
+            flexDirection="row">
+        <Paragraph marginRight={majorScale(1)}>{ countString(count, max) }</Paragraph>
+        { max && buildingClickers(onAssignWorker, onRetireWorker)}
+      </Pane>
+    </Card>
   )
 }
 
@@ -31,6 +53,8 @@ Worker.propTypes = {
   max: PropTypes.number,
   name: PropTypes.string,
   visible: PropTypes.bool,
+  onAssignWorker: PropTypes.func,
+  onRetireWorker: PropTypes.func,
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -40,7 +64,13 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onAssignWorker: () => dispatch(assignWorker(ownProps.name)),
+    onRetireWorker: () => dispatch(retireWorker(ownProps.name))
+  }
+}
 export default connect(
   mapStateToProps,
-  null,
+  mapDispatchToProps,
 )(Worker)
