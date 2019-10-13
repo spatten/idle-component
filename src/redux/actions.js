@@ -1,4 +1,4 @@
-import { PRODUCE_RESOURCES, CREATE_BUILDING, ASSIGN_WORKER, RETIRE_WORKER } from './actionTypes'
+import { PRODUCE_RESOURCES, CREATE_BUILDING, ASSIGN_WORKER, RETIRE_WORKER, TICK } from './actionTypes'
 
 export const produceResources = resources => ({
   type: PRODUCE_RESOURCES,
@@ -18,4 +18,9 @@ export const assignWorker = worker => ({
 export const retireWorker = worker => ({
   type: RETIRE_WORKER,
   payload: worker
+})
+
+export const sendTick = () => ({
+  type: TICK,
+  payload: null
 })

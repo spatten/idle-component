@@ -3,6 +3,7 @@ import React from 'react'
 import Resource from './components/resource'
 import Building from './components/building'
 import Worker from './components/worker'
+import Ticker from './components/ticker'
 import { majorScale, Heading, Pane } from 'evergreen-ui'
 import { Helmet } from 'react-helmet'
 
@@ -19,6 +20,7 @@ function App () {
         `}</style>
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
       </Helmet>
+      <Ticker />
       <Pane display="flex" flexDirection="column" padding={majorScale(2)}>
         <Heading>Resources</Heading>
         <Pane display="flex" flexDirection="row">
