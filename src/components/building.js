@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createBuilding } from '../redux/actions'
-import { majorScale, Button, Card, Icon, Paragraph, Text, Tooltip } from 'evergreen-ui'
+import { majorScale, Button, Card, Icon, Pane, Paragraph, Text, Tooltip } from 'evergreen-ui'
 
 function haveResourcesToPay (cost, resources) {
   const res = Object.keys(cost).every((resource) => {
@@ -11,23 +11,26 @@ function haveResourcesToPay (cost, resources) {
   return res
 }
 
-function tooltipContent (name, cost, resources) {
+function tooltipContent (name, cost, resources, description) {
   const costItems = Object.keys(cost).map((resource) => {
     const color = cost[resource] <= resources[resource].count ? 'success' : 'danger'
     return <li key={resource}><Text color={color}>{cost[resource]} {resources[resource].name}</Text></li>
   })
 
   return (
-    <Paragraph margin={majorScale(1)}>
-      Your next {name} will cost
-      <ul>
+    <Pane margin={majorScale(1)}>
+      <Paragraph>{ description }</Paragraph>
+      <Paragraph>
+        Your next {name} will cost:
+      </Paragraph>
+      <ul style={ { marginTop: majorScale(1), paddingLeft: majorScale(2) } }>
         {costItems}
       </ul>
-    </Paragraph>
+    </Pane>
   )
 }
 
-function Building ({ count, name, icon, handleClick, cost, resources }) {
+function Building ({ count, name, icon, handleClick, cost, resources, description }) {
   return (
     <Card width={majorScale(20)}
           height={majorScale(10)}
@@ -42,7 +45,7 @@ function Building ({ count, name, icon, handleClick, cost, resources }) {
           position="relative"
           border="muted">
       <Text>{count}</Text>
-      <Tooltip content={tooltipContent(name, cost, resources)}
+      <Tooltip content={tooltipContent(name, cost, resources, description)}
                appearance="card">
         <Icon icon="info-sign"
               position="absolute"

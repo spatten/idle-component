@@ -3,6 +3,7 @@ export default {
     hut: {
       slug: 'hut',
       name: 'Hut',
+      description: 'Provides room for 4 workers.',
       icon: 'home',
       count: 0,
       baseCost: {
@@ -16,6 +17,7 @@ export default {
     farm: {
       slug: 'farm',
       name: 'Farm',
+      description: 'Allows up to 4 farmers to work. Each farmer produces 3 food per tick.',
       icon: 'media',
       count: 0,
       baseCost: {
