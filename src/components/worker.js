@@ -41,7 +41,7 @@ function Worker ({ count, max, name, icon, visible, onRetireWorker, onAssignWork
       <Paragraph>{ name }</Paragraph>
       <Pane display="flex"
             flexDirection="row">
-        <Paragraph marginRight={majorScale(1)}>{ countString(count, max) }</Paragraph>
+        <Paragraph marginRight={majorScale(1)} textAlign="center" marginTop="auto" marginBottom="auto">{ countString(count, max) }</Paragraph>
         { showArrows && buildingClickers(onAssignWorker, onRetireWorker)}
       </Pane>
     </Card>
