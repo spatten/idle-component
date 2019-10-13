@@ -30,6 +30,22 @@ export default {
         iron: 10
       }
     },
+    mine: {
+      slug: 'mine',
+      name: 'Mine',
+      description: 'Allows up to 4 miners to work. Each miner produces 1 iron per tick.',
+      icon: 'mountain',
+      count: 0,
+      baseCost: {
+        wood: 150,
+        iron: 150
+      },
+      costExponential: 1.2,
+      cost: {
+        wood: 150,
+        iron: 150
+      }
+    },
   },
   resources: {
     food: {

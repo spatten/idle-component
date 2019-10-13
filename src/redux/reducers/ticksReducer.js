@@ -26,6 +26,11 @@ export default function (state, action) {
         if (resources.wood.count > resources.wood.capacity) resources.wood.count = resources.wood.capacity
         break
       }
+      case 'miners': {
+        resources.iron.count += 1 * worker.count * ticksElapsed
+        if (resources.iron.count > resources.iron.capacity) resources.iron.count = resources.iron.capacity
+        break
+      }
       }
     })
     resources.food.count += foodCreated - foodConsumed

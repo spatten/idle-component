@@ -35,6 +35,7 @@ function App () {
         <Pane display="flex" flexDirection="row">
           <Building name="hut" />
           <Building name="farm" />
+          <Building name="mine" />
         </Pane>
       </Pane>
       <Pane display="flex" flexDirection="column" padding={majorScale(2)}>
@@ -43,6 +44,7 @@ function App () {
           <Worker name="unassigned" />
           <Worker name="woodcutters" />
           <Worker name="farmers" />
+          <Worker name="miners" />
         </Pane>
       </Pane>
     </>

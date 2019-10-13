@@ -47,6 +47,11 @@ export default function (state, action) {
       workers.farmers.max += 4
       break
     }
+    case 'mine': {
+      workers.miners.visible = true
+      workers.miners.max += 4
+      break
+    }
     }
 
     const result = {
