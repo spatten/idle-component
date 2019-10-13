@@ -1,13 +1,12 @@
-import React from 'react';
+import React from 'react'
 
-import './App.css';
 import Resource from './components/resource'
 import Building from './components/building'
 import Worker from './components/worker'
 import { majorScale, Heading, Pane } from 'evergreen-ui'
 import { Helmet } from 'react-helmet'
 
-function App() {
+function App () {
   return (
     <>
       <Helmet>
@@ -44,7 +43,7 @@ function App() {
         </Pane>
       </Pane>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
