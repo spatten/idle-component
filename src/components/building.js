@@ -66,11 +66,12 @@ function Building ({ count, name, icon, handleClick, cost, resources, descriptio
 }
 
 Building.propTypes = {
+  cost: PropTypes.object,
   count: PropTypes.number,
+  description: PropTypes.string,
   name: PropTypes.string,
   icon: PropTypes.string,
   handleClick: PropTypes.func,
-  cost: PropTypes.object,
   resources: PropTypes.object,
 }
 
