@@ -4,17 +4,17 @@ export default function (state, action) {
   switch (action.type) {
   case PRODUCE_RESOURCES: {
     const created = action.payload
-    const updatedResources = { ...state }.resources
+    const { resources } = { ...state }
     // TODO: Refactor this
     Object.keys(created).forEach((resource) => {
-      updatedResources[resource].count += created[resource]
-      if (updatedResources[resource].count > updatedResources[resource].capacity) {
-        updatedResources[resource].count = updatedResources[resource].capacity
+      resources[resource].count += created[resource]
+      if (resources[resource].count > resources[resource].capacity) {
+        resources[resource].count = resources[resource].capacity
       }
     })
     return {
       ...state,
-      resources: updatedResources
+      resources: { ...resources }
     }
   }
   default:

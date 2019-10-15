@@ -4,33 +4,41 @@ export default function (state, action) {
   switch (action.type) {
   case ASSIGN_WORKER: {
     const worker = action.payload
-    const updatedWorkers = { ...state }.workers
-    if (updatedWorkers.unassigned.count <= 0) {
-      return
+    const { workers } = state
+    const { unassigned } = workers
+    const updatedWorkers = workers[worker]
+    if (unassigned.count <= 0) {
+      return state
     }
-    if (updatedWorkers[worker].max && updatedWorkers[worker].count >= updatedWorkers[worker].max) {
-      return
+    if (updatedWorkers.max && updatedWorkers.count >= updatedWorkers.max) {
+      return state
     }
 
-    updatedWorkers[worker].count += 1
-    updatedWorkers.unassigned.count -= 1
+    updatedWorkers.count += 1
+    unassigned.count -= 1
+    workers.unassigned = { ...unassigned }
+    workers[worker] = { ...updatedWorkers }
     return {
       ...state,
-      workers: updatedWorkers
+      workers: { ...workers }
     }
   }
   case RETIRE_WORKER: {
     const worker = action.payload
-    const updatedWorkers = { ...state }.workers
-    if (updatedWorkers[worker].count <= 0) {
-      return
+    const { workers } = state
+    const { unassigned } = workers
+    const updatedWorkers = workers[worker]
+    if (updatedWorkers.count <= 0) {
+      return state
     }
 
-    updatedWorkers[worker].count -= 1
-    updatedWorkers.unassigned.count += 1
+    updatedWorkers.count -= 1
+    unassigned.count += 1
+    workers.unassigned = { ...unassigned }
+    workers[worker] = { ...updatedWorkers }
     return {
       ...state,
-      workers: updatedWorkers
+      workers: { ...workers }
     }
   }
   default:

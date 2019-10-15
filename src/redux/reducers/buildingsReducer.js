@@ -24,7 +24,7 @@ const spendResources = (cost, resources) => {
 export default function (state, action) {
   switch (action.type) {
   case CREATE_BUILDING: {
-    const { buildings, resources, workers } = { ...state }
+    let { buildings, resources, workers } = { ...state }
     const building = buildings[action.payload]
 
     const cost = building.cost
@@ -37,41 +37,76 @@ export default function (state, action) {
     spendResources(cost, resources)
     switch (action.payload) {
     case 'hut': {
-      workers.unassigned.visible = true
-      workers.unassigned.count += 4
-      workers.woodcutters.visible = true
+      const { unassigned, woodcutters } = workers
+      unassigned.visible = true
+      unassigned.count += 4
+      woodcutters.visible = true
+      workers = {
+        ...workers,
+        unassigned: { ...unassigned },
+        woodcutters: { ...woodcutters },
+      }
       break
     }
     case 'farm': {
-      workers.farmers.visible = true
-      workers.farmers.max += 4
+      const { farmers } = workers
+      farmers.visible = true
+      farmers.max += 4
+      workers = {
+        ...workers,
+        farmers: { ...farmers },
+      }
       break
     }
     case 'mine': {
-      workers.miners.visible = true
-      workers.miners.max += 4
+      const { miners } = workers
+      miners.visible = true
+      miners.max += 4
+      workers = {
+        ...workers,
+        miners: { ...miners },
+      }
       break
     }
     case 'barn': {
-      resources.food.capacity *= 2
+      const { food } = resources
+      food.capacity *= 2
+
+      resources = {
+        ...resources,
+        food: { ...food },
+      }
       break
     }
     case 'shed': {
-      resources.wood.capacity *= 2
+      const { wood } = resources
+      wood.capacity *= 2
+
+      resources = {
+        ...resources,
+        wood: { ...wood },
+      }
       break
     }
     case 'forge': {
-      resources.iron.capacity *= 2
+      const { iron } = resources
+      iron.capacity *= 2
+
+      resources = {
+        ...resources,
+        iron: { ...iron },
+      }
       break
     }
     }
 
+    buildings[action.payload] = { ...building }
     const result = {
       ...state,
-      resources: resources,
-      workers: workers,
+      resources: { ...resources },
+      workers: { ...workers },
+      buildings: { ...buildings },
     }
-    result.buildings[action.payload] = building
     return result
   }
   default:

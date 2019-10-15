@@ -1,4 +1,4 @@
-export default {
+const initial = {
   buildings: {
     hut: {
       slug: 'hut',
@@ -144,4 +144,14 @@ export default {
       visible: false,
     },
   }
+}
+
+export default function (state, action) {
+  console.log(`initialState. state = ${JSON.stringify(state)}`)
+  if (state === null || state === undefined || state === {}) {
+    console.log('no state found. Loading initial default state')
+    return initial
+  }
+  console.log('saved state found. Loading it...')
+  return state
 }
