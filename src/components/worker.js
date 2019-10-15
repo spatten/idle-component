@@ -12,14 +12,21 @@ const countString = (count, max) => {
   }
 }
 
-const buildingClickers = (onAssignWorker, onRetireWorker) => (
+const buildingClickers = (onAssignWorker, onRetireWorker, count, max, unassignedCount) => (
   <>
-    <IconButton icon="arrow-up" onClick={onAssignWorker}/>
-    <IconButton icon="arrow-down" onClick={onRetireWorker} />
+    <IconButton
+      icon="arrow-up"
+      disabled={(max && count >= max) || unassignedCount === 0}
+      onClick={onAssignWorker}/>
+    <IconButton
+      icon="arrow-down"
+      disabled={count <= 0}
+      onClick={onRetireWorker}
+    />
   </>
 )
 
-function Worker ({ count, max, name, icon, visible, onRetireWorker, onAssignWorker }) {
+function Worker ({ count, max, name, icon, visible, onRetireWorker, onAssignWorker, unassignedCount }) {
   if (visible === false) {
     return null
   }
@@ -42,7 +49,7 @@ function Worker ({ count, max, name, icon, visible, onRetireWorker, onAssignWork
       <Pane display="flex"
             flexDirection="row">
         <Paragraph marginRight={majorScale(1)} textAlign="center" marginTop="auto" marginBottom="auto">{ countString(count, max) }</Paragraph>
-        { showArrows && buildingClickers(onAssignWorker, onRetireWorker)}
+        { showArrows && buildingClickers(onAssignWorker, onRetireWorker, count, max, unassignedCount)}
       </Pane>
     </Card>
   )
@@ -56,12 +63,14 @@ Worker.propTypes = {
   visible: PropTypes.bool,
   onAssignWorker: PropTypes.func,
   onRetireWorker: PropTypes.func,
+  unassignedCount: PropTypes.number,
 }
 
 const mapStateToProps = (state, ownProps) => {
   const { workers } = state
   return {
     ...workers[ownProps.name],
+    unassignedCount: workers.unassigned.count
   }
 }
 
