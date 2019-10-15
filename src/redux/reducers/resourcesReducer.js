@@ -4,7 +4,8 @@ export default function (state, action) {
   switch (action.type) {
   case PRODUCE_RESOURCES: {
     const created = action.payload
-    const { resources } = { ...state }
+    let { resources } = { ...state }
+    resources = { ...resources }
     // TODO: Refactor this
     Object.keys(created).forEach((resource) => {
       resources[resource].count += created[resource]
