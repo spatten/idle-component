@@ -38,6 +38,7 @@ export default function (state, action) {
     if (food.count > food.capacity) { food.count = food.capacity }
 
     resources = {
+      ...resources,
       food: { ...food },
       wood: { ...wood },
       iron: { ...iron },
