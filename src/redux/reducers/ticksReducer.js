@@ -27,7 +27,7 @@ export default function (state, action) {
         break
       }
       case 'miners': {
-        resources.iron.count += 1 * worker.count * ticksElapsed
+        resources.iron.count += 2 * worker.count * ticksElapsed
         if (resources.iron.count > resources.iron.capacity) resources.iron.count = resources.iron.capacity
         break
       }

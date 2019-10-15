@@ -33,7 +33,7 @@ export default {
     mine: {
       slug: 'mine',
       name: 'Mine',
-      description: 'Allows up to 4 miners to work. Each miner produces 1 iron per tick.',
+      description: 'Allows up to 4 miners to work. Each miner produces 2 iron per tick.',
       icon: 'mountain',
       count: 0,
       baseCost: {
@@ -44,6 +44,51 @@ export default {
       cost: {
         wood: 150,
         iron: 150
+      }
+    },
+    barn: {
+      slug: 'barn',
+      name: 'Barn',
+      description: 'Doubles the amount of food you can store',
+      count: 0,
+      baseCost: {
+        food: 400,
+        wood: 250
+      },
+      costExponential: 1.3,
+      cost: {
+        food: 400,
+        wood: 250
+      }
+    },
+    shed: {
+      slug: 'shed',
+      name: 'Shed',
+      description: 'Doubles the amount of wood you can store',
+      count: 0,
+      baseCost: {
+        wood: 400,
+        iron: 250
+      },
+      costExponential: 1.3,
+      cost: {
+        wood: 400,
+        iron: 250
+      }
+    },
+    forge: {
+      slug: 'forge',
+      name: 'Forge',
+      description: 'Doubles the amount of iron you can store',
+      count: 0,
+      baseCost: {
+        wood: 800,
+        iron: 400,
+      },
+      costExponential: 1.3,
+      cost: {
+        wood: 800,
+        iron: 400,
       }
     },
   },

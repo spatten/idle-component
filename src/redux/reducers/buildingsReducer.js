@@ -52,6 +52,18 @@ export default function (state, action) {
       workers.miners.max += 4
       break
     }
+    case 'barn': {
+      resources.food.capacity *= 2
+      break
+    }
+    case 'shed': {
+      resources.wood.capacity *= 2
+      break
+    }
+    case 'forge': {
+      resources.iron.capacity *= 2
+      break
+    }
     }
 
     const result = {

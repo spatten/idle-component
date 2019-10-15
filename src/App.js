@@ -37,6 +37,9 @@ function App () {
           <Building name="hut" />
           <Building name="farm" />
           <Building name="mine" />
+          <Building name="barn" />
+          <Building name="shed" />
+          <Building name="forge" />
         </Pane>
       </Pane>
       <Pane display="flex" flexDirection="column" padding={majorScale(2)}>
