@@ -9,7 +9,7 @@ const initial = {
       baseCost: {
         wood: 10
       },
-      costExponential: 1.2,
+      costExponential: 1.4,
       cost: {
         wood: 10
       }
@@ -95,21 +95,21 @@ const initial = {
   resources: {
     food: {
       name: 'Food',
-      count: 100,
+      count: 0,
       capacity: 500,
       icon: 'heart',
       action: 'Gather'
     },
     wood: {
       name: 'Wood',
-      count: 300,
+      count: 0,
       capacity: 500,
       icon: 'tree',
       action: 'Chop'
     },
     iron: {
       name: 'Iron',
-      count: 300,
+      count: 0,
       capacity: 500,
       icon: 'mountain',
       action: 'Mine'
