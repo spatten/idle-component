@@ -9,7 +9,7 @@ const initial = {
       baseCost: {
         wood: 10
       },
-      costExponential: 1.3,
+      costExponential: 1.2,
       cost: {
         wood: 10
       }

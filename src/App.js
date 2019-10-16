@@ -30,7 +30,6 @@ function App () {
               <Resource name="food" />
               <Resource name="wood" />
               <Resource name="iron" />
-              <Resource name="oil" />
             </Pane>
           </Pane>
           <Pane display="flex" flexDirection="column" padding={majorScale(2)}>
