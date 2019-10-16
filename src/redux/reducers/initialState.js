@@ -9,7 +9,7 @@ const initial = {
       baseCost: {
         wood: 10
       },
-      costExponential: 1.4,
+      costExponential: 1.3,
       cost: {
         wood: 10
       }
@@ -24,7 +24,7 @@ const initial = {
         wood: 15,
         iron: 10
       },
-      costExponential: 1.2,
+      costExponential: 1.4,
       cost: {
         wood: 15,
         iron: 10
@@ -37,13 +37,13 @@ const initial = {
       icon: 'mountain',
       count: 0,
       baseCost: {
-        wood: 150,
-        iron: 150
+        wood: 100,
+        iron: 100
       },
-      costExponential: 1.2,
+      costExponential: 1.4,
       cost: {
-        wood: 150,
-        iron: 150
+        wood: 100,
+        iron: 100
       }
     },
     barn: {
@@ -55,7 +55,7 @@ const initial = {
         food: 400,
         wood: 250
       },
-      costExponential: 1.3,
+      costExponential: 2,
       cost: {
         food: 400,
         wood: 250
@@ -70,7 +70,7 @@ const initial = {
         wood: 400,
         iron: 250
       },
-      costExponential: 1.3,
+      costExponential: 2,
       cost: {
         wood: 400,
         iron: 250
@@ -85,7 +85,7 @@ const initial = {
         wood: 800,
         iron: 400,
       },
-      costExponential: 1.3,
+      costExponential: 2,
       cost: {
         wood: 800,
         iron: 400,

@@ -9,7 +9,7 @@ const haveResourcesToPay = (cost, resources) => {
 const calculateCost = ({ baseCost, count, costExponential }) => {
   const cost = {}
   Object.keys(baseCost).forEach((resource) => {
-    cost[resource] = Math.ceil(baseCost[resource] * (count + 1) ** costExponential)
+    cost[resource] = Math.ceil(baseCost[resource] * costExponential ** (count))
   })
   return cost
 }
