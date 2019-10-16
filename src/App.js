@@ -2,7 +2,7 @@ import React from 'react'
 
 import Resource from './components/resource'
 import Building from './components/building'
-import Worker from './components/worker'
+import WorkersPane from './components/workersPane'
 import Ticker from './components/ticker'
 import { majorScale, Card, Heading, Pane } from 'evergreen-ui'
 import { Helmet } from 'react-helmet'
@@ -44,15 +44,7 @@ function App () {
               <Building name="forge" />
             </Pane>
           </Pane>
-          <Pane display="flex" flexDirection="column" padding={majorScale(2)}>
-            <Heading>Workers</Heading>
-            <Pane display="flex" flexDirection="row" flexWrap="wrap">
-              <Worker name="unassigned" />
-              <Worker name="farmers" />
-              <Worker name="woodcutters" />
-              <Worker name="miners" />
-            </Pane>
-          </Pane>
+          <WorkersPane />
         </Pane>
         <Pane width={majorScale(70)} padding={majorScale(2)}>
           <Card padding={majorScale(1)}
