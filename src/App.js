@@ -4,7 +4,7 @@ import Resource from './components/resource'
 import Building from './components/building'
 import Worker from './components/worker'
 import Ticker from './components/ticker'
-import { majorScale, Heading, Pane } from 'evergreen-ui'
+import { majorScale, Card, Heading, Pane } from 'evergreen-ui'
 import { Helmet } from 'react-helmet'
 
 function App () {
@@ -22,33 +22,44 @@ function App () {
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
       </Helmet>
       <Ticker />
-      <Pane display="flex" flexDirection="column" padding={majorScale(2)}>
-        <Heading>Resources</Heading>
-        <Pane display="flex" flexDirection="row">
-          <Resource name="food" />
-          <Resource name="wood" />
-          <Resource name="iron" />
-          <Resource name="oil" />
+      <Pane display="flex" flexDirection="row">
+        <Pane width={majorScale(70)}>
+          <Pane display="flex" flexDirection="column" padding={majorScale(2)} flexWrap="wrap">
+            <Heading>Resources</Heading>
+            <Pane display="flex" flexDirection="row" flexWrap="wrap">
+              <Resource name="food" />
+              <Resource name="wood" />
+              <Resource name="iron" />
+              <Resource name="oil" />
+            </Pane>
+          </Pane>
+          <Pane display="flex" flexDirection="column" padding={majorScale(2)}>
+            <Heading>Buildings</Heading>
+            <Pane display="flex" flexDirection="row" flexWrap="wrap">
+              <Building name="hut" />
+              <Building name="farm" />
+              <Building name="mine" />
+              <Building name="barn" />
+              <Building name="shed" />
+              <Building name="forge" />
+            </Pane>
+          </Pane>
+          <Pane display="flex" flexDirection="column" padding={majorScale(2)}>
+            <Heading>Workers</Heading>
+            <Pane display="flex" flexDirection="row" flexWrap="wrap">
+              <Worker name="unassigned" />
+              <Worker name="farmers" />
+              <Worker name="woodcutters" />
+              <Worker name="miners" />
+            </Pane>
+          </Pane>
         </Pane>
-      </Pane>
-      <Pane display="flex" flexDirection="column" padding={majorScale(2)}>
-        <Heading>Buildings</Heading>
-        <Pane display="flex" flexDirection="row">
-          <Building name="hut" />
-          <Building name="farm" />
-          <Building name="mine" />
-          <Building name="barn" />
-          <Building name="shed" />
-          <Building name="forge" />
-        </Pane>
-      </Pane>
-      <Pane display="flex" flexDirection="column" padding={majorScale(2)}>
-        <Heading>Workers</Heading>
-        <Pane display="flex" flexDirection="row">
-          <Worker name="unassigned" />
-          <Worker name="farmers" />
-          <Worker name="woodcutters" />
-          <Worker name="miners" />
+        <Pane width={majorScale(70)} padding={majorScale(2)}>
+          <Card padding={majorScale(1)}
+                elevation={1}>
+            <Heading>Messages</Heading>
+            <hr />
+          </Card>
         </Pane>
       </Pane>
     </>
