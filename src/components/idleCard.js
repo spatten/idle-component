@@ -5,7 +5,7 @@ import { majorScale, Card } from 'evergreen-ui'
 
 function IdleCard (props) {
   return (
-    <Card width={majorScale(20)}
+    <Card width={majorScale(18)}
           height={majorScale(10)}
           padding={majorScale(1)}
           elevation={1}
