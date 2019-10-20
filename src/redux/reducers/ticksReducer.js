@@ -22,7 +22,7 @@ export default function (state, action) {
         break
       }
       case 'woodcutters': {
-        wood.count += 3 * worker.count * ticksElapsed
+        wood.count += 4 * worker.count * ticksElapsed
         if (wood.count > wood.capacity) wood.count = wood.capacity
         break
       }
