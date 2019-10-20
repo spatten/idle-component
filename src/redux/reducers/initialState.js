@@ -92,6 +92,23 @@ const initial = {
       }
     },
   },
+  research: {
+    fasterMiners: {
+      name: 'Faster Miners',
+      count: 0,
+      icon: 'mountain',
+      baseCost: {
+        wood: 800,
+        iron: 400
+      },
+      costExponential: 2,
+      cost: {
+        wood: 800,
+        iron: 400,
+      }
+
+    }
+  },
   resources: {
     food: {
       name: 'Food',
@@ -143,7 +160,7 @@ const initial = {
       max: 0,
       visible: false,
     },
-  }
+  },
 }
 
 export default function (state, action) {

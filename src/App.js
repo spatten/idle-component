@@ -3,6 +3,7 @@ import React from 'react'
 import Resource from './components/resource'
 import Building from './components/building'
 import WorkersPane from './components/workersPane'
+import Research from './components/research'
 import Ticker from './components/ticker'
 import { majorScale, Heading, Pane } from 'evergreen-ui'
 import { Helmet } from 'react-helmet'
@@ -44,6 +45,12 @@ function App () {
             </Pane>
           </Pane>
           <WorkersPane />
+          <Pane display="flex" flexDirection="column" padding={majorScale(2)} flexWrap="wrap">
+            <Heading>Research</Heading>
+            <Pane display="flex" flexDirection="row" flexWrap="wrap">
+              <Research name="fasterMiners" />
+            </Pane>
+          </Pane>
         </Pane>
       </Pane>
     </>
