@@ -31,6 +31,8 @@ export default function (state, action) {
         if (iron.count > iron.capacity) iron.count = iron.capacity
         break
       }
+      default:
+        // NO-OP
       }
     })
     food.count += foodCreated - foodConsumed

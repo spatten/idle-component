@@ -98,6 +98,9 @@ export default function (state, action) {
       }
       break
     }
+    default: {
+      // NO-OP
+    }
     }
 
     buildings[action.payload] = { ...building }

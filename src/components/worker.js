@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { assignWorker, retireWorker } from '../redux/actions'
-import { majorScale, IconButton, Paragraph, Pane, Text, Tooltip } from 'evergreen-ui'
+import { majorScale, IconButton, Paragraph, Pane } from 'evergreen-ui'
 import IdleCard from './idleCard'
 
 const countString = (count, max) => {
