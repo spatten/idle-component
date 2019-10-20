@@ -4,7 +4,7 @@ import Resource from './components/resource'
 import Building from './components/building'
 import WorkersPane from './components/workersPane'
 import Ticker from './components/ticker'
-import { majorScale, Card, Heading, Pane } from 'evergreen-ui'
+import { majorScale, Heading, Pane } from 'evergreen-ui'
 import { Helmet } from 'react-helmet'
 
 function App () {
@@ -44,13 +44,6 @@ function App () {
             </Pane>
           </Pane>
           <WorkersPane />
-        </Pane>
-        <Pane width={majorScale(70)} padding={majorScale(2)}>
-          <Card padding={majorScale(1)}
-                elevation={1}>
-            <Heading>Messages</Heading>
-            <hr />
-          </Card>
         </Pane>
       </Pane>
     </>
