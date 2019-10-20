@@ -5,8 +5,8 @@ import { majorScale, Card } from 'evergreen-ui'
 
 function IdleCard (props) {
   return (
-    <Card width={majorScale(18)}
-          height={majorScale(10)}
+    <Card width={props.width}
+          height={props.height}
           padding={majorScale(1)}
           elevation={1}
           margin={majorScale(1)}
@@ -24,6 +24,13 @@ function IdleCard (props) {
 
 IdleCard.propTypes = {
   children: PropTypes.node,
+  height: PropTypes.number,
+  width: PropTypes.number
+}
+
+IdleCard.defaultProps = {
+  width: majorScale(18),
+  height: majorScale(10),
 }
 
 export default connect(
