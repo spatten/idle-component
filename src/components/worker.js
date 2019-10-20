@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { assignWorker, retireWorker } from '../redux/actions'
-import { majorScale, Card, IconButton, Paragraph, Pane, Text, Tooltip } from 'evergreen-ui'
+import { majorScale, IconButton, Paragraph, Pane, Text, Tooltip } from 'evergreen-ui'
+import IdleCard from './idleCard'
 
 const countString = (count, max) => {
   if (max === null) {
@@ -33,18 +34,7 @@ function Worker ({ count, max, name, icon, visible, onRetireWorker, onAssignWork
   const showArrows = name !== 'unassigned'
 
   return (
-    <Card width={majorScale(20)}
-          height={majorScale(10)}
-          padding={majorScale(1)}
-          elevation={1}
-          margin={majorScale(1)}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexDirection="column"
-          userSelect="none"
-          position="relative"
-          border="muted">
+    <IdleCard>
       <Paragraph>{ name }</Paragraph>
       <Pane display="flex"
             flexDirection="row"
@@ -53,7 +43,7 @@ function Worker ({ count, max, name, icon, visible, onRetireWorker, onAssignWork
         <Paragraph marginRight={majorScale(1)} textAlign="center" marginTop="auto" marginBottom="auto">{ countString(count, max) }</Paragraph>
         { showArrows && buildingClickers(onAssignWorker, onRetireWorker, count, max, unassignedCount)}
       </Pane>
-    </Card>
+    </IdleCard>
   )
 }
 

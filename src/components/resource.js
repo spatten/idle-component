@@ -2,28 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { produceResources } from '../redux/actions'
-import { majorScale, Button, Card, Text } from 'evergreen-ui'
+import { majorScale, Button, Text } from 'evergreen-ui'
+import IdleCard from './idleCard'
 
 function Resource ({ count, capacity, name, action, icon, handleClick }) {
   return (
-    <Card width={majorScale(20)}
-          height={majorScale(10)}
-          padding={majorScale(1)}
-          elevation={1}
-          margin={majorScale(1)}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexDirection="column"
-          userSelect="none"
-          border="muted">
+    <IdleCard>
       <Text>{count} / {capacity}</Text>
       <Button onClick={handleClick}
               marginTop={majorScale(1)}
               iconBefore={icon}>
         {action} {name}
       </Button>
-    </Card>
+    </IdleCard>
   )
 }
 

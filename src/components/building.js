@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createBuilding } from '../redux/actions'
-import { majorScale, Button, Card, Icon, Pane, Paragraph, Text, Tooltip } from 'evergreen-ui'
+import { majorScale, Button, Icon, Pane, Paragraph, Text, Tooltip } from 'evergreen-ui'
+import IdleCard from './idleCard'
 
 function haveResourcesToPay (cost, resources) {
   const res = Object.keys(cost).every((resource) => {
@@ -32,18 +33,7 @@ function tooltipContent (name, cost, resources, description) {
 
 function Building ({ count, name, icon, handleClick, cost, resources, description }) {
   return (
-    <Card width={majorScale(20)}
-          height={majorScale(10)}
-          padding={majorScale(1)}
-          elevation={1}
-          margin={majorScale(1)}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexDirection="column"
-          userSelect="none"
-          position="relative"
-          border="muted">
+    <IdleCard>
       <Text>{count}</Text>
       <Tooltip content={tooltipContent(name, cost, resources, description)}
                appearance="card">
@@ -60,7 +50,7 @@ function Building ({ count, name, icon, handleClick, cost, resources, descriptio
               disabled={!haveResourcesToPay(cost, resources)}>
         Build {name}
       </Button>
-    </Card>
+    </IdleCard>
 
   )
 }
