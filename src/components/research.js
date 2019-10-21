@@ -2,19 +2,41 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { doResearch } from '../redux/actions'
-import { majorScale, Button } from 'evergreen-ui'
+import { majorScale, Button, Icon, Pane, Paragraph, Text, Tooltip } from 'evergreen-ui'
+import { haveResourcesToPay } from '../redux/selectors'
 import IdleCard from './idleCard'
 
-function haveResourcesToPay (cost, resources) {
-  const res = Object.keys(cost).every((resource) => {
-    return (cost[resource] <= resources[resource].count)
+function tooltipContent (name, cost, resources, description) {
+  const costItems = Object.keys(cost).map((resource) => {
+    const color = cost[resource] <= resources[resource].count ? 'success' : 'danger'
+    return <li key={resource}><Text color={color}>{cost[resource]} {resources[resource].name}</Text></li>
   })
-  return res
-}
 
-function Research ({ name, icon, handleClick, cost, resources }) {
+  return (
+    <Pane margin={majorScale(1)}>
+      <Paragraph>{ description }</Paragraph>
+      <Paragraph>
+        Your next {name} will cost:
+      </Paragraph>
+      <ul style={ { marginTop: majorScale(1), paddingLeft: majorScale(2) } }>
+        {costItems}
+      </ul>
+    </Pane>
+  )
+}
+function Research ({ name, icon, handleClick, cost, resources, description }) {
   return (
     <IdleCard width={majorScale(36)}>
+      <Text>{name}</Text>
+      <Tooltip content={tooltipContent(name, cost, resources, description)}
+               appearance="card">
+        <Icon icon="info-sign"
+              position="absolute"
+              display="inline-block"
+              line-height="20px"
+              right={majorScale(1)}
+              top={10}/>
+      </Tooltip>
       <Button onClick={handleClick}
               marginTop={majorScale(1)}
               iconBefore={icon}
@@ -28,6 +50,7 @@ function Research ({ name, icon, handleClick, cost, resources }) {
 
 Research.propTypes = {
   cost: PropTypes.object,
+  description: PropTypes.string,
   name: PropTypes.string,
   icon: PropTypes.string,
   handleClick: PropTypes.func,

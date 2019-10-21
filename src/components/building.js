@@ -2,15 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createBuilding } from '../redux/actions'
+import { haveResourcesToPay } from '../redux/selectors'
 import { majorScale, Button, Icon, Pane, Paragraph, Text, Tooltip } from 'evergreen-ui'
 import IdleCard from './idleCard'
-
-function haveResourcesToPay (cost, resources) {
-  const res = Object.keys(cost).every((resource) => {
-    return (cost[resource] <= resources[resource].count)
-  })
-  return res
-}
 
 function tooltipContent (name, cost, resources, description) {
   const costItems = Object.keys(cost).map((resource) => {
