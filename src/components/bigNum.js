@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const suffixes = ['', 'k', 'M', 'B', 'T', 'Qi', 'Qa', 'Sx', 'Sp', 'Oc', 'No', 'Dc']
+const suffixes = ['', 'k', 'M', 'B', 'T', 'Qa', 'Qi', 'Sx', 'Sp', 'Oc', 'No', 'Dc']
 
 function BigNum ({ number }) {
   if (number < 10000) {
