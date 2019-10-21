@@ -24,10 +24,11 @@ function tooltipContent (name, cost, resources, description) {
     </Pane>
   )
 }
-function Research ({ name, icon, handleClick, cost, resources, description }) {
+function Research ({ name, count, icon, handleClick, cost, resources, description }) {
+  const nameText = count > 0 ? `${name} ${count}` : name
   return (
     <IdleCard width={majorScale(28)}>
-      <Text>{name}</Text>
+      <Text>{nameText}</Text>
       <Tooltip content={tooltipContent(name, cost, resources, description)}
                appearance="card">
         <Icon icon="info-sign"

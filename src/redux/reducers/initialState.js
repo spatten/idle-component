@@ -96,7 +96,7 @@ const initial = {
     fasterFarmers: {
       name: 'Faster Farmers',
       count: 0,
-      icon: 'tree',
+      icon: 'media',
       baseCost: {
         wood: 800,
         iron: 400
