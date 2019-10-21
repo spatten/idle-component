@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { majorScale, Card } from 'evergreen-ui'
 
 function IdleCard (props) {
@@ -33,7 +32,4 @@ IdleCard.defaultProps = {
   height: majorScale(10),
 }
 
-export default connect(
-  null,
-  null,
-)(IdleCard)
+export default IdleCard
