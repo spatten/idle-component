@@ -5,11 +5,12 @@ import { doResearch } from '../redux/actions'
 import { majorScale, Button, Icon, Pane, Paragraph, Text, Tooltip } from 'evergreen-ui'
 import { haveResourcesToPay } from '../redux/selectors'
 import IdleCard from './idleCard'
+import BigNum from './bigNum'
 
 function tooltipContent (name, cost, resources, description) {
   const costItems = Object.keys(cost).map((resource) => {
     const color = cost[resource] <= resources[resource].count ? 'success' : 'danger'
-    return <li key={resource}><Text color={color}>{cost[resource]} {resources[resource].name}</Text></li>
+    return <li key={resource}><Text color={color}><BigNum number={cost[resource]} /> {resources[resource].name}</Text></li>
   })
 
   return (

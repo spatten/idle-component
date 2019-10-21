@@ -4,11 +4,12 @@ import { connect } from 'react-redux'
 import { produceResources } from '../redux/actions'
 import { majorScale, Button, Text } from 'evergreen-ui'
 import IdleCard from './idleCard'
+import BigNum from './bigNum'
 
 function Resource ({ count, capacity, name, action, icon, handleClick }) {
   return (
     <IdleCard>
-      <Text>{count} / {capacity}</Text>
+      <Text><BigNum number={count}/> / <BigNum number={capacity} /></Text>
       <Button onClick={handleClick}
               marginTop={majorScale(1)}
               iconBefore={icon}>
