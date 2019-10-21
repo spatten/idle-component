@@ -26,7 +26,7 @@ function tooltipContent (name, cost, resources, description) {
 }
 function Research ({ name, icon, handleClick, cost, resources, description }) {
   return (
-    <IdleCard width={majorScale(36)}>
+    <IdleCard width={majorScale(30)}>
       <Text>{name}</Text>
       <Tooltip content={tooltipContent(name, cost, resources, description)}
                appearance="card">

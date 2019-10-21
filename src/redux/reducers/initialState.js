@@ -93,6 +93,34 @@ const initial = {
     },
   },
   research: {
+    fasterFarmers: {
+      name: 'Faster Farmers',
+      count: 0,
+      icon: 'tree',
+      baseCost: {
+        wood: 800,
+        iron: 400
+      },
+      costExponential: 2,
+      cost: {
+        wood: 800,
+        iron: 400,
+      }
+    },
+    fasterAxes: {
+      name: 'Faster Axes',
+      count: 0,
+      icon: 'tree',
+      baseCost: {
+        wood: 800,
+        iron: 400
+      },
+      costExponential: 2,
+      cost: {
+        wood: 800,
+        iron: 400,
+      }
+    },
     fasterMiners: {
       name: 'Faster Miners',
       count: 0,
@@ -106,7 +134,6 @@ const initial = {
         wood: 800,
         iron: 400,
       }
-
     }
   },
   resources: {
@@ -164,11 +191,9 @@ const initial = {
 }
 
 export default function (state, action) {
-  console.log(`initialState. state = ${JSON.stringify(state)}`)
   if (state === null || state === undefined || state === {}) {
     console.log('no state found. Loading initial default state')
     return initial
   }
-  console.log('saved state found. Loading it...')
   return state
 }

@@ -48,6 +48,8 @@ function App () {
           <Pane display="flex" flexDirection="column" padding={majorScale(2)} flexWrap="wrap">
             <Heading>Research</Heading>
             <Pane display="flex" flexDirection="row" flexWrap="wrap">
+              <Research name="fasterFarmers" />
+              <Research name="fasterAxes" />
               <Research name="fasterMiners" />
             </Pane>
           </Pane>

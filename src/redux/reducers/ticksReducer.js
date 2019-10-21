@@ -3,7 +3,7 @@ import { TICK } from '../actionTypes'
 export default function (state, action) {
   switch (action.type) {
   case TICK: {
-    let { workers, resources, lastTick } = { ...state }
+    let { workers, resources, research, lastTick } = { ...state }
     const { food, wood, iron } = { ...resources }
     let foodConsumed = 0
     let foodCreated = 0
@@ -18,16 +18,19 @@ export default function (state, action) {
       foodConsumed += worker.count * ticksElapsed
       switch (workerType) {
       case 'farmers': {
-        foodCreated += 3 * worker.count * ticksElapsed
+        const { fasterFarmers } = research
+        foodCreated += 3 * worker.count * (2 ** fasterFarmers.count) * ticksElapsed
         break
       }
       case 'woodcutters': {
-        wood.count += 4 * worker.count * ticksElapsed
+        const { fasterAxes } = research
+        wood.count += 4 * worker.count * (2 ** fasterAxes.count) * ticksElapsed
         if (wood.count > wood.capacity) wood.count = wood.capacity
         break
       }
       case 'miners': {
-        iron.count += 2 * worker.count * ticksElapsed
+        const { fasterMiners } = research
+        iron.count += 2 * worker.count * (2 ** fasterMiners.count) * ticksElapsed
         if (iron.count > iron.capacity) iron.count = iron.capacity
         break
       }
