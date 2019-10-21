@@ -9,7 +9,7 @@ const countString = (count, max) => {
   if (max === null) {
     return count
   } else {
-    return `${count} / ${max}`
+    return `${count}${'\u00A0'}/${'\u00A0'}${max}`
   }
 }
 
