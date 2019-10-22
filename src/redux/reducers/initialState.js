@@ -98,13 +98,13 @@ const initial = {
       count: 0,
       icon: 'media',
       baseCost: {
-        wood: 800,
-        iron: 400
+        wood: 8000,
+        iron: 4000,
       },
       costExponential: 2,
       cost: {
-        wood: 800,
-        iron: 400,
+        wood: 8000,
+        iron: 4000,
       }
     },
     fasterAxes: {
@@ -112,13 +112,13 @@ const initial = {
       count: 0,
       icon: 'tree',
       baseCost: {
-        wood: 800,
-        iron: 400
+        wood: 8000,
+        iron: 4000,
       },
       costExponential: 2,
       cost: {
-        wood: 800,
-        iron: 400,
+        wood: 8000,
+        iron: 4000,
       }
     },
     fasterMiners: {
@@ -126,13 +126,13 @@ const initial = {
       count: 0,
       icon: 'mountain',
       baseCost: {
-        wood: 800,
-        iron: 400
+        wood: 8000,
+        iron: 4000,
       },
       costExponential: 2,
       cost: {
-        wood: 800,
-        iron: 400,
+        wood: 8000,
+        iron: 4000,
       }
     }
   },
