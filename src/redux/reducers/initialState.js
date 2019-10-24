@@ -101,7 +101,7 @@ const initial = {
         wood: 8000,
         iron: 4000,
       },
-      costExponential: 2,
+      costExponential: 4,
       cost: {
         wood: 8000,
         iron: 4000,
@@ -115,7 +115,7 @@ const initial = {
         wood: 8000,
         iron: 4000,
       },
-      costExponential: 2,
+      costExponential: 4,
       cost: {
         wood: 8000,
         iron: 4000,
@@ -129,7 +129,7 @@ const initial = {
         wood: 8000,
         iron: 4000,
       },
-      costExponential: 2,
+      costExponential: 4,
       cost: {
         wood: 8000,
         iron: 4000,
