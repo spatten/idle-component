@@ -58,36 +58,6 @@ export default function (state, action) {
       }
       break
     }
-    case 'barn': {
-      const { food } = resources
-      food.capacity *= 2
-
-      resources = {
-        ...resources,
-        food: { ...food },
-      }
-      break
-    }
-    case 'shed': {
-      const { wood } = resources
-      wood.capacity *= 2
-
-      resources = {
-        ...resources,
-        wood: { ...wood },
-      }
-      break
-    }
-    case 'forge': {
-      const { iron } = resources
-      iron.capacity *= 2
-
-      resources = {
-        ...resources,
-        iron: { ...iron },
-      }
-      break
-    }
     default: {
       // NO-OP
     }

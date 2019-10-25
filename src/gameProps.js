@@ -50,6 +50,7 @@ export default {
         food: 400,
         wood: 250
       },
+      providesStorage: 'food',
       costExponential: 2,
     },
     shed: {
@@ -61,6 +62,7 @@ export default {
         wood: 400,
         iron: 250
       },
+      providesStorage: 'wood',
       costExponential: 2,
     },
     forge: {
@@ -72,6 +74,7 @@ export default {
         wood: 800,
         iron: 400,
       },
+      providesStorage: 'iron',
       costExponential: 2,
     },
   },
@@ -111,28 +114,28 @@ export default {
     food: {
       name: 'Food',
       count: 0,
-      capacity: 500,
+      initialCapacity: 500,
       icon: 'heart',
       action: 'Gather'
     },
     wood: {
       name: 'Wood',
       count: 0,
-      capacity: 500,
+      initialCapacity: 500,
       icon: 'tree',
       action: 'Chop'
     },
     iron: {
       name: 'Iron',
       count: 0,
-      capacity: 500,
+      initialCapacity: 500,
       icon: 'mountain',
       action: 'Mine'
     },
     oil: {
       name: 'Oil',
       count: 0,
-      capacity: 100,
+      initialCapacity: 100,
       icon: 'oil-field',
       action: 'Pump'
     },

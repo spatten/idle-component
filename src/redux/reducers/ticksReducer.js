@@ -1,4 +1,5 @@
 import { TICK } from '../actionTypes'
+import { calculateMaxStorage } from '../selectors'
 
 export default function (state, action) {
   switch (action.type) {
@@ -24,14 +25,17 @@ export default function (state, action) {
       }
       case 'woodcutters': {
         const { fasterAxes } = research
+        const capacity = calculateMaxStorage(state, 'wood')
         wood.count += 4 * worker.count * (2 ** fasterAxes.count) * ticksElapsed
-        if (wood.count > wood.capacity) wood.count = wood.capacity
+
+        if (wood.count > capacity) wood.count = capacity
         break
       }
       case 'miners': {
         const { fasterMiners } = research
+        const capacity = calculateMaxStorage(state, 'iron')
         iron.count += 2 * worker.count * (2 ** fasterMiners.count) * ticksElapsed
-        if (iron.count > iron.capacity) iron.count = iron.capacity
+        if (iron.count > capacity) iron.count = capacity
         break
       }
       default:
@@ -39,8 +43,9 @@ export default function (state, action) {
       }
     })
     food.count += foodCreated - foodConsumed
+    const capacity = calculateMaxStorage(state, 'food')
     if (food.count < 0) { food.count = 0 }
-    if (food.count > food.capacity) { food.count = food.capacity }
+    if (food.count > capacity) { food.count = capacity }
 
     resources = {
       ...resources,
