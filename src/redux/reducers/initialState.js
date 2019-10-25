@@ -148,7 +148,7 @@ const initial = {
       count: 0,
       max: null,
       name: 'Wood Cutters',
-      visible: false,
+      visible: true,
     },
     miners: {
       count: 0,
