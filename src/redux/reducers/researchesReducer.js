@@ -1,17 +1,10 @@
 import { DO_RESEARCH } from '../actionTypes'
+import { calculateCost } from '../selectors'
 
 const haveResourcesToPay = (cost, resources) => {
   return Object.keys(cost).every((resource) => {
     return (cost[resource] <= resources[resource].count)
   })
-}
-
-const calculateCost = ({ baseCost, count, costExponential }) => {
-  const cost = {}
-  Object.keys(baseCost).forEach((resource) => {
-    cost[resource] = Math.ceil(baseCost[resource] * costExponential ** (count))
-  })
-  return cost
 }
 
 const spendResources = (cost, resources) => {
@@ -28,12 +21,11 @@ export default function (state, action) {
     const techName = action.payload
 
     const tech = { ...research }[techName]
-    const cost = tech.cost
+    const cost = calculateCost(tech)
     if (!haveResourcesToPay(cost, resources)) {
       return state
     }
     tech.count += 1
-    tech.cost = calculateCost(tech)
     spendResources(cost, resources)
 
     return {

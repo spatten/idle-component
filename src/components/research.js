@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { doResearch } from '../redux/actions'
 import { majorScale, Button, Icon, Pane, Paragraph, Text, Tooltip } from 'evergreen-ui'
-import { haveResourcesToPay } from '../redux/selectors'
+import { calculateCost, haveResourcesToPay } from '../redux/selectors'
 import IdleCard from './idleCard'
 import BigNum from './bigNum'
 
@@ -25,8 +25,10 @@ function tooltipContent (name, cost, resources, description) {
     </Pane>
   )
 }
-function Research ({ name, count, icon, handleClick, cost, resources, description }) {
+function Research (props) {
+  const { name, count, icon, handleClick, resources, description } = props
   const nameText = count > 0 ? `${name} ${count}` : name
+  const cost = calculateCost(props)
   return (
     <IdleCard width={majorScale(28)}>
       <Text>{nameText}</Text>
@@ -51,7 +53,7 @@ function Research ({ name, count, icon, handleClick, cost, resources, descriptio
 }
 
 Research.propTypes = {
-  cost: PropTypes.object,
+  count: PropTypes.number,
   description: PropTypes.string,
   name: PropTypes.string,
   icon: PropTypes.string,

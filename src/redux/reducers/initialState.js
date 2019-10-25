@@ -79,10 +79,6 @@ const initial = {
         iron: 4000,
       },
       costExponential: 4,
-      cost: {
-        wood: 8000,
-        iron: 4000,
-      }
     },
     fasterAxes: {
       name: 'Faster Axes',
@@ -93,10 +89,6 @@ const initial = {
         iron: 4000,
       },
       costExponential: 4,
-      cost: {
-        wood: 8000,
-        iron: 4000,
-      }
     },
     fasterMiners: {
       name: 'Faster Miners',
@@ -107,10 +99,6 @@ const initial = {
         iron: 4000,
       },
       costExponential: 4,
-      cost: {
-        wood: 8000,
-        iron: 4000,
-      }
     }
   },
   resources: {
