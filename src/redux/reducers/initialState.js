@@ -192,7 +192,6 @@ const initial = {
 
 export default function (state, action) {
   if (state === null || state === undefined || state === {}) {
-    console.log('no state found. Loading initial default state')
     return initial
   }
   return state
