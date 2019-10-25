@@ -10,9 +10,6 @@ const initial = {
         wood: 10
       },
       costExponential: 1.2,
-      cost: {
-        wood: 10
-      }
     },
     farm: {
       slug: 'farm',
@@ -25,10 +22,6 @@ const initial = {
         iron: 10
       },
       costExponential: 1.4,
-      cost: {
-        wood: 15,
-        iron: 10
-      }
     },
     mine: {
       slug: 'mine',
@@ -41,10 +34,6 @@ const initial = {
         iron: 100
       },
       costExponential: 1.4,
-      cost: {
-        wood: 100,
-        iron: 100
-      }
     },
     barn: {
       slug: 'barn',
@@ -56,10 +45,6 @@ const initial = {
         wood: 250
       },
       costExponential: 2,
-      cost: {
-        food: 400,
-        wood: 250
-      }
     },
     shed: {
       slug: 'shed',
@@ -71,10 +56,6 @@ const initial = {
         iron: 250
       },
       costExponential: 2,
-      cost: {
-        wood: 400,
-        iron: 250
-      }
     },
     forge: {
       slug: 'forge',
@@ -86,10 +67,6 @@ const initial = {
         iron: 400,
       },
       costExponential: 2,
-      cost: {
-        wood: 800,
-        iron: 400,
-      }
     },
   },
   research: {

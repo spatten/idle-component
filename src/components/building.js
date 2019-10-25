@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createBuilding } from '../redux/actions'
-import { haveResourcesToPay } from '../redux/selectors'
+import { calculateCost, haveResourcesToPay } from '../redux/selectors'
 import { majorScale, Button, Icon, Pane, Paragraph, Text, Tooltip } from 'evergreen-ui'
 import IdleCard from './idleCard'
 import BigNum from './bigNum'
@@ -26,7 +26,9 @@ function tooltipContent (name, cost, resources, description) {
   )
 }
 
-function Building ({ count, name, icon, handleClick, cost, resources, description }) {
+function Building (props) {
+  const { count, name, icon, handleClick, resources, description } = props
+  const cost = calculateCost(props)
   return (
     <IdleCard>
       <Text>{count}</Text>
@@ -46,7 +48,6 @@ function Building ({ count, name, icon, handleClick, cost, resources, descriptio
         Build {name}
       </Button>
     </IdleCard>
-
   )
 }
 

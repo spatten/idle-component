@@ -4,4 +4,12 @@ function haveResourcesToPay (cost, resources) {
   })
 }
 
-export { haveResourcesToPay }
+const calculateCost = ({ baseCost, count, costExponential }) => {
+  const cost = {}
+  Object.keys(baseCost).forEach((resource) => {
+    cost[resource] = Math.ceil(baseCost[resource] * costExponential ** (count))
+  })
+  return cost
+}
+
+export { calculateCost, haveResourcesToPay }
