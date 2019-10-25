@@ -43,7 +43,6 @@ export default function (state, action) {
     case 'farm': {
       const { farmers } = workers
       farmers.visible = true
-      farmers.max += 4
       workers = {
         ...workers,
         farmers: { ...farmers },
@@ -53,7 +52,6 @@ export default function (state, action) {
     case 'mine': {
       const { miners } = workers
       miners.visible = true
-      miners.max += 4
       workers = {
         ...workers,
         miners: { ...miners },

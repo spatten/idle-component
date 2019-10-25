@@ -21,6 +21,9 @@ export default {
         wood: 15,
         iron: 10
       },
+      providesWorkers: {
+        farmers: 4,
+      },
       costExponential: 1.4,
     },
     mine: {
@@ -32,6 +35,9 @@ export default {
       baseCost: {
         wood: 100,
         iron: 100
+      },
+      providesWorkers: {
+        miners: 4,
       },
       costExponential: 1.4,
     },
@@ -134,25 +140,25 @@ export default {
   workers: {
     unassigned: {
       count: 0,
-      max: null,
+      hasMax: false,
       name: 'Unassigned',
       visible: false,
     },
     farmers: {
       count: 0,
-      max: 0,
+      hasMax: true,
       name: 'Farmers',
       visible: false,
     },
     woodcutters: {
       count: 0,
-      max: null,
+      hasMax: false,
       name: 'Wood Cutters',
       visible: true,
     },
     miners: {
       count: 0,
-      max: 0,
+      hasMax: true,
       name: 'Miners',
       visible: false,
     },
