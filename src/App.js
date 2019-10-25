@@ -6,11 +6,12 @@ import WorkersPane from './components/workersPane'
 import Research from './components/research'
 import Ticker from './components/ticker'
 import { majorScale, Heading, Pane } from 'evergreen-ui'
-import { Helmet } from 'react-helmet'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 function App () {
+  const helmetContext = {}
   return (
-    <>
+    <HelmetProvider context={helmetContext}>
       <Helmet>
         <title>Idle Component!</title>
         {/* This style and the following meta tag prevent zooming in on mobile, which is really annoying when you're just clicking on buttons */}
@@ -55,7 +56,7 @@ function App () {
           </Pane>
         </Pane>
       </Pane>
-    </>
+    </HelmetProvider>
   )
 }
 
