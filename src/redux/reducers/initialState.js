@@ -135,21 +135,25 @@ const initial = {
     unassigned: {
       count: 0,
       max: null,
+      name: 'Unassigned',
       visible: false,
     },
     farmers: {
       count: 0,
       max: 0,
+      name: 'Farmers',
       visible: false,
     },
     woodcutters: {
       count: 0,
       max: null,
+      name: 'Wood Cutters',
       visible: false,
     },
     miners: {
       count: 0,
       max: 0,
+      name: 'Miners',
       visible: false,
     },
   },

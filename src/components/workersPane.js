@@ -11,9 +11,9 @@ function WorkersPane ({ workers }) {
     <Pane display="flex" flexDirection="column" padding={majorScale(2)}>
     <Heading>Workers <Text>(total: <BigNum number={workersCount} /> , unassigned: <BigNum number={workers.unassigned.count} />)</Text></Heading>
       <Pane display="flex" flexDirection="row" flexWrap="wrap">
-        <Worker name="farmers" />
-        <Worker name="woodcutters" />
-        <Worker name="miners" />
+        <Worker slug="farmers" />
+        <Worker slug="woodcutters" />
+        <Worker slug="miners" />
       </Pane>
     </Pane>
   )

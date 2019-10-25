@@ -31,7 +31,6 @@ function Worker ({ count, max, name, icon, visible, onRetireWorker, onAssignWork
   if (visible === false) {
     return null
   }
-  const showArrows = name !== 'unassigned'
 
   return (
     <IdleCard>
@@ -41,7 +40,7 @@ function Worker ({ count, max, name, icon, visible, onRetireWorker, onAssignWork
             marginTop={majorScale(1)}>
 
         <Paragraph marginRight={majorScale(1)} textAlign="center" marginTop="auto" marginBottom="auto">{ countString(count, max) }</Paragraph>
-        { showArrows && buildingClickers(onAssignWorker, onRetireWorker, count, max, unassignedCount)}
+        { buildingClickers(onAssignWorker, onRetireWorker, count, max, unassignedCount)}
       </Pane>
     </IdleCard>
   )
@@ -52,6 +51,7 @@ Worker.propTypes = {
   icon: PropTypes.string,
   max: PropTypes.number,
   name: PropTypes.string,
+  slug: PropTypes.string,
   visible: PropTypes.bool,
   onAssignWorker: PropTypes.func,
   onRetireWorker: PropTypes.func,
@@ -61,15 +61,15 @@ Worker.propTypes = {
 const mapStateToProps = (state, ownProps) => {
   const { workers } = state
   return {
-    ...workers[ownProps.name],
+    ...workers[ownProps.slug],
     unassignedCount: workers.unassigned.count
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onAssignWorker: () => dispatch(assignWorker(ownProps.name)),
-    onRetireWorker: () => dispatch(retireWorker(ownProps.name))
+    onAssignWorker: () => dispatch(assignWorker(ownProps.slug)),
+    onRetireWorker: () => dispatch(retireWorker(ownProps.slug))
   }
 }
 export default connect(
