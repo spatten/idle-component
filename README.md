@@ -1,5 +1,19 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Generating ctags
+
+brew install ctags-exuberant
+Follow the instructions here: https://github.com/romainl/ctags-patterns-for-javascript
+ctags -R -e
+
+## Starting the server
+
+yarn start
+
+## Building for production
+
+yarn build
+
 ## Available Scripts
 
 In the project directory, you can run:
