@@ -33,7 +33,7 @@ Resource.propTypes = {
 const mapStateToProps = (state, ownProps) => {
   return {
     ...gameProps.resources[ownProps.name],
-    count: state.resources[ownProps.name].count,
+    count: state.resources[ownProps.name],
     capacity: calculateMaxStorage(state, ownProps.name)
   }
 }

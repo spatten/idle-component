@@ -1,23 +1,21 @@
 import { ASSIGN_WORKER, RETIRE_WORKER } from '../actionTypes'
+import { calculateMaxWorkers } from '../selectors'
 
 export default function (state, action) {
   switch (action.type) {
   case ASSIGN_WORKER: {
     const worker = action.payload
-    const { workers } = state
-    const { unassigned } = workers
-    const updatedWorkers = workers[worker]
-    if (unassigned.count <= 0) {
+    const { workers } = { ...state }
+    const maxWorkers = calculateMaxWorkers(state, worker)
+    if (workers.unassigned <= 0) {
       return state
     }
-    if (updatedWorkers.max && updatedWorkers.count >= updatedWorkers.max) {
+    if (maxWorkers && workers[worker] >= maxWorkers) {
       return state
     }
 
-    updatedWorkers.count += 1
-    unassigned.count -= 1
-    workers.unassigned = { ...unassigned }
-    workers[worker] = { ...updatedWorkers }
+    workers.unassigned -= 1
+    workers[worker] += 1
     return {
       ...state,
       workers: { ...workers }
@@ -25,17 +23,13 @@ export default function (state, action) {
   }
   case RETIRE_WORKER: {
     const worker = action.payload
-    const { workers } = state
-    const { unassigned } = workers
-    const updatedWorkers = workers[worker]
-    if (updatedWorkers.count <= 0) {
+    const { workers } = { ...state }
+    if (workers[worker] <= 0) {
       return state
     }
 
-    updatedWorkers.count -= 1
-    unassigned.count += 1
-    workers.unassigned = { ...unassigned }
-    workers[worker] = { ...updatedWorkers }
+    workers.unassigned += 1
+    workers[worker] -= 1
     return {
       ...state,
       workers: { ...workers }

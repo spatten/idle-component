@@ -5,7 +5,6 @@ export default {
       name: 'Hut',
       description: 'Provides room for 4 workers.',
       icon: 'home',
-      count: 0,
       baseCost: {
         wood: 10
       },
@@ -16,7 +15,6 @@ export default {
       name: 'Farm',
       description: 'Allows up to 4 farmers to work. Each farmer produces 3 food per tick.',
       icon: 'media',
-      count: 0,
       baseCost: {
         wood: 15,
         iron: 10
@@ -31,7 +29,6 @@ export default {
       name: 'Mine',
       description: 'Allows up to 4 miners to work. Each miner produces 2 iron per tick.',
       icon: 'mountain',
-      count: 0,
       baseCost: {
         wood: 100,
         iron: 100
@@ -45,7 +42,6 @@ export default {
       slug: 'barn',
       name: 'Barn',
       description: 'Doubles the amount of food you can store',
-      count: 0,
       baseCost: {
         food: 400,
         wood: 250
@@ -57,7 +53,6 @@ export default {
       slug: 'shed',
       name: 'Shed',
       description: 'Doubles the amount of wood you can store',
-      count: 0,
       baseCost: {
         wood: 400,
         iron: 250
@@ -69,7 +64,6 @@ export default {
       slug: 'forge',
       name: 'Forge',
       description: 'Doubles the amount of iron you can store',
-      count: 0,
       baseCost: {
         wood: 800,
         iron: 400,
@@ -81,7 +75,6 @@ export default {
   research: {
     fasterFarmers: {
       name: 'Faster Farmers',
-      count: 0,
       icon: 'media',
       baseCost: {
         wood: 8000,
@@ -91,7 +84,6 @@ export default {
     },
     fasterAxes: {
       name: 'Faster Axes',
-      count: 0,
       icon: 'tree',
       baseCost: {
         wood: 8000,
@@ -101,7 +93,6 @@ export default {
     },
     fasterMiners: {
       name: 'Faster Miners',
-      count: 0,
       icon: 'mountain',
       baseCost: {
         wood: 8000,
@@ -113,28 +104,24 @@ export default {
   resources: {
     food: {
       name: 'Food',
-      count: 0,
       initialCapacity: 500,
       icon: 'heart',
       action: 'Gather'
     },
     wood: {
       name: 'Wood',
-      count: 0,
       initialCapacity: 500,
       icon: 'tree',
       action: 'Chop'
     },
     iron: {
       name: 'Iron',
-      count: 0,
       initialCapacity: 500,
       icon: 'mountain',
       action: 'Mine'
     },
     oil: {
       name: 'Oil',
-      count: 0,
       initialCapacity: 100,
       icon: 'oil-field',
       action: 'Pump'
@@ -142,25 +129,21 @@ export default {
   },
   workers: {
     unassigned: {
-      count: 0,
       hasMax: false,
       name: 'Unassigned',
       visible: false,
     },
     farmers: {
-      count: 0,
       hasMax: true,
       name: 'Farmers',
       visible: false,
     },
     woodcutters: {
-      count: 0,
       hasMax: false,
       name: 'Wood Cutters',
       visible: true,
     },
     miners: {
-      count: 0,
       hasMax: true,
       name: 'Miners',
       visible: false,
