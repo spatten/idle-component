@@ -66,7 +66,7 @@ const mapStateToProps = (state, ownProps) => {
     ...gameProps.workers[ownProps.slug],
     count: workers[ownProps.slug],
     max: calculateMaxWorkers(state, ownProps.slug),
-    unassignedCount: workers.unassigned.count,
+    unassignedCount: workers.unassigned,
     visible: true
   }
 }
