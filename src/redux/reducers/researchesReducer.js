@@ -1,5 +1,6 @@
 import { DO_RESEARCH } from '../actionTypes'
 import { calculateCost, haveResourcesToPay, spendResources } from '../selectors'
+import gameProps from '../../gameProps'
 
 export default function (state, action) {
   switch (action.type) {
@@ -7,12 +8,12 @@ export default function (state, action) {
     let { research, resources } = { ...state }
     const techName = action.payload
 
-    const tech = { ...research }[techName]
-    const cost = calculateCost(tech)
+    const tech = gameProps.research[techName]
+    const techCount = { ...research }[techName]
+    const cost = calculateCost({ ...tech, count: techCount })
     if (!haveResourcesToPay(cost, resources)) {
       return state
     }
-    tech.count += 1
     resources = spendResources(cost, resources)
 
     return {
@@ -21,7 +22,7 @@ export default function (state, action) {
       research:
       {
         ...research,
-        [techName]: { ...tech },
+        [techName]: techCount + 1,
       }
     }
   }
