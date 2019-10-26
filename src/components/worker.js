@@ -5,6 +5,7 @@ import { assignWorker, retireWorker } from '../redux/actions'
 import { majorScale, IconButton, Paragraph, Pane } from 'evergreen-ui'
 import IdleCard from './idleCard'
 import { calculateMaxWorkers } from '../redux/selectors'
+import gameProps from '../gameProps'
 
 const countString = (count, max) => {
   if (max === null) {
@@ -61,11 +62,12 @@ Worker.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
   const { workers } = state
-  const max = calculateMaxWorkers(state, ownProps.slug)
   return {
-    ...workers[ownProps.slug],
-    max: max,
-    unassignedCount: workers.unassigned.count
+    ...gameProps.workers[ownProps.slug],
+    count: workers[ownProps.slug].count,
+    max: calculateMaxWorkers(state, ownProps.slug),
+    unassignedCount: workers.unassigned.count,
+    visible: true
   }
 }
 

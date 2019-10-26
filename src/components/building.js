@@ -6,6 +6,7 @@ import { calculateCost, haveResourcesToPay } from '../redux/selectors'
 import { majorScale, Button, Icon, Pane, Paragraph, Text, Tooltip } from 'evergreen-ui'
 import IdleCard from './idleCard'
 import BigNum from './bigNum'
+import gameProps from '../gameProps'
 
 function tooltipContent (name, cost, resources, description) {
   const costItems = Object.keys(cost).map((resource) => {
@@ -62,9 +63,10 @@ Building.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { resources, buildings } = state
+  const { resources } = state
   return {
-    ...buildings[ownProps.name],
+    ...gameProps.buildings[ownProps.name],
+    count: state.buildings[ownProps.name].count,
     resources: { ...resources }
   }
 }

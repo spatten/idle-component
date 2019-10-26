@@ -6,6 +6,7 @@ import { majorScale, Button, Text } from 'evergreen-ui'
 import IdleCard from './idleCard'
 import BigNum from './bigNum'
 import { calculateMaxStorage } from '../redux/selectors'
+import gameProps from '../gameProps'
 
 function Resource ({ count, capacity, name, action, icon, handleClick }) {
   return (
@@ -31,7 +32,8 @@ Resource.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    ...state.resources[ownProps.name],
+    ...gameProps.resources[ownProps.name],
+    count: state.resources[ownProps.name].count,
     capacity: calculateMaxStorage(state, ownProps.name)
   }
 }

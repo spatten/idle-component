@@ -6,6 +6,7 @@ import { majorScale, Button, Icon, Pane, Paragraph, Text, Tooltip } from 'evergr
 import { calculateCost, haveResourcesToPay } from '../redux/selectors'
 import IdleCard from './idleCard'
 import BigNum from './bigNum'
+import gameProps from '../gameProps'
 
 function tooltipContent (name, cost, resources, description) {
   const costItems = Object.keys(cost).map((resource) => {
@@ -62,9 +63,10 @@ Research.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { resources, research } = state
+  const { resources } = state
   return {
-    ...research[ownProps.name],
+    ...gameProps.research[ownProps.name],
+    count: state.research[ownProps.name].count,
     resources: { ...resources }
   }
 }
