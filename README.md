@@ -1,88 +1,52 @@
+# Idle Component
+
+This is just something I built to explore a few things.
+
+First, I always ran into huge performance problems when I played Idle games -- my laptop fan would go crazy and I'd burn through my battery . I wanted to play around with an idle game built using React to see if React brought any performance gains to the table or if the performance problems were outside of React's scope. So far I haven't run into any perf problems, but I think I got rid of them by only updating state once per second. I may have to play around with that later.
+
+Second, I wanted to make an idle game. They're a pretty pure expression of a certain type of game mechanic, and I wanted to see if I could understand it a bit more.
+
+Third, it seemed like a good playground to understand a bit more about React, Redux, immutable data and things like that.
+
+So here it is. It's a work in progress, and not actually "fun" to play yet, but I'm having fun building it.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+![What it looks like](./idle-component.png)
+
+## Running it
+
+You'll need a recent version of Node and Yarn. Then:
+
+~~~
+yarn install
+yarn start
+~~~
+
+The game will be running at <http://localhost:3000>.
+
+## Deploying
+
+To make a production build, run
+
+~~~
+yarn build
+~~~
 
 ## Generating ctags
 
-brew install ctags-exuberant
+First, install exuberant ctags:
+
+OS X: `brew install ctags-exuberant`
+
+Ubuntu: `sudo apt-get update && sudo apt-get install exuberant-ctags`
+
+RedHat: `sudo yum install ctags`
+
 Follow the instructions here: https://github.com/romainl/ctags-patterns-for-javascript
+
+To generate the ctags:
+
+~~~
 ctags -R -e
-
-## Starting the server
-
-yarn start
-
-## Building for production
-
-yarn build
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
-### Installing eslint
-
-./node_modules/.bin/eslint --init --yarn
-
-I chose standard.js styles
+~~~
