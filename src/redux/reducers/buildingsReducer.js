@@ -1,60 +1,32 @@
 import { CREATE_BUILDING } from '../actionTypes'
-import { calculateCost } from '../selectors'
-
-const haveResourcesToPay = (cost, resources) => {
-  return Object.keys(cost).every((resource) => {
-    return (cost[resource] <= resources[resource].count)
-  })
-}
-
-const spendResources = (cost, resources) => {
-  Object.keys(cost).forEach((resource) => {
-    resources[resource].count -= cost[resource]
-  })
-  return resources
-}
+import { calculateCost, haveResourcesToPay, spendResources } from '../selectors'
+import gameProps from '../../gameProps'
 
 export default function (state, action) {
   switch (action.type) {
   case CREATE_BUILDING: {
     let { buildings, resources, workers } = { ...state }
-    const building = buildings[action.payload]
+    const building = gameProps.buildings[action.payload]
+    const buildingCount = buildings[action.payload]
 
-    const cost = calculateCost(building)
-    if (!haveResourcesToPay(cost, resources)) {
+    const cost = calculateCost({ ...building, count: buildingCount })
+    console.log(`building: ${JSON.stringify(building)}, cost: ${JSON.stringify(cost)}`)
+    if (!haveResourcesToPay(cost, resources, true)) {
+      console.log(`Nope, not enough. cost = ${JSON.stringify(cost)}, resources = ${JSON.stringify(resources)}`)
       return state
     }
+    console.log('Yep, I can pay')
 
-    building.count = building.count + 1
-    spendResources(cost, resources)
+    buildings = {
+      ...buildings,
+      [action.payload]: buildings[action.payload] + 1
+    }
+    resources = spendResources(cost, resources)
     switch (action.payload) {
     case 'hut': {
-      const { unassigned, woodcutters } = workers
-      unassigned.visible = true
-      unassigned.count += 4
-      woodcutters.visible = true
       workers = {
         ...workers,
-        unassigned: { ...unassigned },
-        woodcutters: { ...woodcutters },
-      }
-      break
-    }
-    case 'farm': {
-      const { farmers } = workers
-      farmers.visible = true
-      workers = {
-        ...workers,
-        farmers: { ...farmers },
-      }
-      break
-    }
-    case 'mine': {
-      const { miners } = workers
-      miners.visible = true
-      workers = {
-        ...workers,
-        miners: { ...miners },
+        unassigned: workers.unassigned + 4,
       }
       break
     }
@@ -63,7 +35,6 @@ export default function (state, action) {
     }
     }
 
-    buildings[action.payload] = { ...building }
     const result = {
       ...state,
       resources: { ...resources },

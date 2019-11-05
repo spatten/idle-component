@@ -1,4 +1,5 @@
-import { PRODUCE_RESOURCES } from '../actionTypes';
+import { PRODUCE_RESOURCES } from '../actionTypes'
+import { calculateMaxStorage } from '../selectors'
 
 export default function (state, action) {
   switch (action.type) {
@@ -8,9 +9,11 @@ export default function (state, action) {
     resources = { ...resources }
     // TODO: Refactor this
     Object.keys(created).forEach((resource) => {
-      resources[resource].count += created[resource]
-      if (resources[resource].count > resources[resource].capacity) {
-        resources[resource].count = resources[resource].capacity
+      const capacity = calculateMaxStorage(state, resource)
+
+      resources[resource] += created[resource]
+      if (resources[resource] > capacity) {
+        resources[resource] = capacity
       }
     })
     return {

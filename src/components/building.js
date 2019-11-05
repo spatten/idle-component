@@ -66,7 +66,7 @@ const mapStateToProps = (state, ownProps) => {
   const { resources } = state
   return {
     ...gameProps.buildings[ownProps.name],
-    count: state.buildings[ownProps.name].count,
+    count: state.buildings[ownProps.name],
     resources: { ...resources }
   }
 }
