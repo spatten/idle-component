@@ -2,9 +2,9 @@
 
 This is just something I built to explore a few things.
 
-First, I always ran into huge performance problems when I played Idle games -- my laptop fan would go crazy and I'd burn through my battery like crazy. I wanted to play around with an idle game built using React to see if React brought any performance gains to the table or if the performance problems were outside of React's scope. So far I haven't run into any perf problems, but I think I got rid of them by only updating state once per second. I may have to play around with that later.
+First, I always ran into huge performance problems when I played Idle games -- my laptop fan would go crazy and I'd burn through my battery . I wanted to play around with an idle game built using React to see if React brought any performance gains to the table or if the performance problems were outside of React's scope. So far I haven't run into any perf problems, but I think I got rid of them by only updating state once per second. I may have to play around with that later.
 
-Second, I wanted to play around with making an idle game. They're a pretty pure expression of a certain type of game mechanic, and I wanted to see if I could understand it a bit more.
+Second, I wanted to make an idle game. They're a pretty pure expression of a certain type of game mechanic, and I wanted to see if I could understand it a bit more.
 
 Third, it seemed like a good playground to understand a bit more about React, Redux, immutable data and things like that.
 
