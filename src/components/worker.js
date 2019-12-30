@@ -19,7 +19,7 @@ const buildingClickers = (onAssignWorker, onRetireWorker, count, max, unassigned
   <>
     <IconButton
       icon="arrow-up"
-      disabled={(max && count >= max) || unassignedCount === 0}
+      disabled={((max || max === 0) && count >= max) || unassignedCount === 0}
       onClick={onAssignWorker}/>
     <IconButton
       icon="arrow-down"
